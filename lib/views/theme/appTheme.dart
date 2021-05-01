@@ -1,0 +1,25 @@
+/*
+ *
+ *    *****   ******
+ *    *   *       *
+ *    *   *      *
+ *    *   *     *  
+ *    *****    *****
+ *
+ * Wrote By Osman Suliman in 2021 
+ */
+import 'package:flutter/material.dart';
+
+ThemeData appTheme() {
+  return ThemeData(
+    primaryColor: Color(0xfffce3b2),
+    primaryColorDark: Color(0xFFACA4A4),
+    primaryColorLight: Color(0xff707070),
+    accentColor: Color(0xffF05F96),
+    hintColor: Color(0xff8D8D8D),
+    dividerColor: Color(0xffEDEDED),
+    buttonColor: Color(0xff252B2E),
+    scaffoldBackgroundColor: Color(0xffFfffff),
+    canvasColor: Color(0xffFfffff),
+  );
+}

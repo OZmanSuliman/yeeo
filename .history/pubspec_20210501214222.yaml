@@ -1,0 +1,39 @@
+name: yeeo
+description: A new Flutter application.
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^0.1.2
+  simple_animations: ^1.3.3
+  page_transition: ^1.1.4
+  image_picker: 0.6.5+3
+  sqflite: ^1.2.0
+  path_provider: ^1.5.1
+  provider: 4.3.2
+
+dev_dependencies:
+  flutter_native_splash: ^0.2.9
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: ^0.7.4
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path_android: "assets/images/icon.png"
+  image_path_ios: "assets/images/icon.png"
+
+flutter_native_splash:
+  color: "#3A62AE"
+  image: assets/images/logo.png
+  android_fullscreen: true
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
