@@ -1,4 +1,4 @@
-import 'package:yeeo/core/providers/introProvider.dart';
+import 'package:yeeo/core/providers/splashProvider.dart';
 import 'package:yeeo/views/Animation/FadeAnimation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -66,7 +66,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
         Tween<double>(begin: 1.0, end: 32.0).animate(_scale2Controller)
           ..addStatusListener((status) {
             if (status == AnimationStatus.completed) {
-              Provider.of<IntroProvider>(context, listen: false)
+              Provider.of<SplashProvider>(context, listen: false)
                   .checkLoginStatus(context);
             }
           });

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mytest/core/database/database_helper.dart';
-import 'package:mytest/views/pages/home.dart';
-import 'package:mytest/views/pages/login.dart';
+import 'package:yeeo/core/database/database_helper.dart';
+import 'package:yeeo/views/pages/home.dart';
+import 'package:yeeo/views/pages/login.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SplashProvider extends ChangeNotifier {

@@ -4,6 +4,7 @@ import 'package:yeeo/core/providers/signupProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/Animation/FadeAnimation.dart';
 import 'package:provider/provider.dart';
+import 'package:yeeo/views/theme/appTheme.dart';
 import '../widgets/responsive_ui.dart';
 
 class SignupPage extends StatefulWidget {
@@ -72,7 +73,7 @@ class _SignupPageState extends State<SignupPage> {
                                               size: _large
                                                   ? 40
                                                   : (_medium ? 33 : 31),
-                                              color: Color(0xff3A62AE),
+                                              color: appTheme().primaryColor,
                                             )
                                           : CircleAvatar(
                                               backgroundColor:
@@ -189,7 +190,7 @@ class _SignupPageState extends State<SignupPage> {
                                             child: IconButton(
                                               icon: Icon(
                                                 Icons.calendar_today_outlined,
-                                                color: Color(0xff3A62AE),
+                                                color: appTheme().primaryColor,
                                               ),
                                               onPressed: () {
                                                 Provider.of<SignUpProvider>(
@@ -229,7 +230,8 @@ class _SignupPageState extends State<SignupPage> {
                                                   child: IconButton(
                                                     icon: Icon(
                                                       Icons.add_call,
-                                                      color: Color(0xff3A62AE),
+                                                      color: appTheme()
+                                                          .primaryColor,
                                                     ),
                                                     onPressed: () {
                                                       if (provider.phoneFormKey
@@ -305,7 +307,8 @@ class _SignupPageState extends State<SignupPage> {
                                                   child: IconButton(
                                                     icon: Icon(
                                                       Icons.add_business,
-                                                      color: Color(0xff3A62AE),
+                                                      color: appTheme()
+                                                          .primaryColor,
                                                     ),
                                                     onPressed: () {
                                                       if (provider
@@ -372,7 +375,8 @@ class _SignupPageState extends State<SignupPage> {
                                                 value: provider.type == 'male'
                                                     ? 1
                                                     : 2,
-                                                activeColor: Color(0xff3A62AE),
+                                                activeColor:
+                                                    appTheme().primaryColor,
                                                 groupValue: 1,
                                                 onChanged: (int value) {
                                                   provider.selectGender('male');
@@ -394,7 +398,8 @@ class _SignupPageState extends State<SignupPage> {
                                                 value: provider.type == 'female'
                                                     ? 1
                                                     : 2,
-                                                activeColor: Color(0xff3A62AE),
+                                                activeColor:
+                                                    appTheme().primaryColor,
                                                 groupValue: 1,
                                                 onChanged: (int value) {
                                                   provider
@@ -426,8 +431,8 @@ class _SignupPageState extends State<SignupPage> {
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10),
                                     gradient: LinearGradient(colors: [
-                                      Color(0xff3A62AE),
-                                      Color(0xff3A62AE),
+                                      appTheme().primaryColor,
+                                      appTheme().primaryColor,
                                     ])),
                                 child: Center(
                                   child: Text(
@@ -457,7 +462,8 @@ class _SignupPageState extends State<SignupPage> {
                                   },
                                   child: Text(
                                     "Login",
-                                    style: TextStyle(color: Color(0xff3A62AE)),
+                                    style: TextStyle(
+                                        color: appTheme().primaryColor),
                                   ),
                                 ),
                               ],
@@ -505,7 +511,7 @@ class _SignupPageState extends State<SignupPage> {
                               child: Icon(
                                 Icons.image,
                                 size: 40,
-                                color: Color(0xff3A62AE),
+                                color: appTheme().primaryColor,
                               ),
                             ),
                             SizedBox(
@@ -535,7 +541,7 @@ class _SignupPageState extends State<SignupPage> {
                               child: Icon(
                                 Icons.camera_alt,
                                 size: 40,
-                                color: Color(0xff3A62AE),
+                                color: appTheme().primaryColor,
                               ),
                             ),
                             SizedBox(
