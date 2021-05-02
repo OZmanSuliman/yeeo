@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:yeeo/core/providers/loginProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
@@ -5,6 +7,7 @@ import 'package:yeeo/views/Animation/FadeAnimation.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
+import 'package:yeeo/views/widgets/userType.dart';
 
 import 'signup.dart';
 
@@ -13,10 +16,44 @@ class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    initAnimation();
+  }
+
+  initAnimation() {
+    Provider.of<LoginProvider>(context, listen: false)
+            .arrowAnimationController1 =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    Provider.of<LoginProvider>(context, listen: false).arrowAnimation1 =
+        Tween(begin: 0.0, end: pi).animate(
+            Provider.of<LoginProvider>(context, listen: false)
+                .arrowAnimationController1);
+
+    Provider.of<LoginProvider>(context, listen: false)
+            .arrowAnimationController2 =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    Provider.of<LoginProvider>(context, listen: false).arrowAnimation2 =
+        Tween(begin: 0.0, end: pi).animate(
+            Provider.of<LoginProvider>(context, listen: false)
+                .arrowAnimationController2);
+    if (Provider.of<LoginProvider>(context, listen: false).userType == 1) {
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController1
+          .reverse();
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController2
+          .forward();
+    } else {
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController2
+          .reverse();
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController1
+          .forward();
+    }
   }
 
   @override
@@ -37,17 +74,37 @@ class _LoginPageState extends State<LoginPage> {
                           fit: BoxFit.fill)),
                   child: FadeAnimation(
                       1.6,
-                      Container(
-                        margin: EdgeInsets.only(top: 50),
-                        child: Center(
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 40,
-                                fontWeight: FontWeight.bold),
+                      Column(
+                        children: [
+                          SizedBox(
+                            height: 30,
                           ),
-                        ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Image.asset("assets/images/icon_white.png"),
+                            ],
+                          ),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Container(
+                                margin: EdgeInsets.only(top: 50),
+                                child: Center(
+                                  child: Text(
+                                    "Login",
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 40,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ))),
               Padding(
                 padding: EdgeInsets.only(left: 30.0, right: 30, top: 25),
@@ -63,6 +120,7 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                           child: Column(
                             children: <Widget>[
+                              UserTypeWidget(),
                               Container(
                                 padding: EdgeInsets.all(8.0),
                                 decoration: BoxDecoration(

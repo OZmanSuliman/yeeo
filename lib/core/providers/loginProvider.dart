@@ -9,8 +9,25 @@ class LoginProvider extends ChangeNotifier {
   final dbHelper = DatabaseHelper.instance;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-
+  int userType = 1;
   var allUsers, user;
+  Animation arrowAnimation1;
+  AnimationController arrowAnimationController1;
+
+  Animation arrowAnimation2;
+  AnimationController arrowAnimationController2;
+  switchType(type) {
+    userType = type;
+    if (type == 1) {
+      arrowAnimationController1.reverse();
+      arrowAnimationController2.forward();
+    } else {
+      arrowAnimationController2.reverse();
+      arrowAnimationController1.forward();
+    }
+
+    notifyListeners();
+  }
 
   login(context) async {
     final List<Map<String, Object>> allRows = await dbHelper.queryAllRows();

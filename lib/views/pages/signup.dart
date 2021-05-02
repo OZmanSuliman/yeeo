@@ -1,10 +1,14 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:yeeo/core/providers/loginProvider.dart';
 import 'package:yeeo/core/providers/signupProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/Animation/FadeAnimation.dart';
 import 'package:provider/provider.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
+import 'package:yeeo/views/widgets/userType.dart';
 import '../widgets/responsive_ui.dart';
 
 class SignupPage extends StatefulWidget {
@@ -12,10 +16,44 @@ class SignupPage extends StatefulWidget {
   _SignupPageState createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    initAnimation();
+  }
+
+  initAnimation() {
+    Provider.of<LoginProvider>(context, listen: false)
+            .arrowAnimationController1 =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    Provider.of<LoginProvider>(context, listen: false).arrowAnimation1 =
+        Tween(begin: 0.0, end: pi).animate(
+            Provider.of<LoginProvider>(context, listen: false)
+                .arrowAnimationController1);
+
+    Provider.of<LoginProvider>(context, listen: false)
+            .arrowAnimationController2 =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+    Provider.of<LoginProvider>(context, listen: false).arrowAnimation2 =
+        Tween(begin: 0.0, end: pi).animate(
+            Provider.of<LoginProvider>(context, listen: false)
+                .arrowAnimationController2);
+    if (Provider.of<LoginProvider>(context, listen: false).userType == 1) {
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController1
+          .reverse();
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController2
+          .forward();
+    } else {
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController2
+          .reverse();
+      Provider.of<LoginProvider>(context, listen: false)
+          .arrowAnimationController1
+          .forward();
+    }
   }
 
   @override
@@ -75,14 +113,15 @@ class _SignupPageState extends State<SignupPage> {
                                                   : (_medium ? 33 : 31),
                                               color: appTheme().primaryColor,
                                             )
-                                          : CircleAvatar(
-                                              backgroundColor:
-                                                  Colors.grey.shade300,
-                                              backgroundImage:
-                                                  provider.isImage == 1
-                                                      ? FileImage(provider.img)
-                                                      : null,
-                                              radius: 150.0,
+                                          : ClipRRect(
+                                              borderRadius:
+                                                  new BorderRadius.all(
+                                                Radius.circular(360),
+                                              ),
+                                              child: Image.file(
+                                                provider.img,
+                                                fit: BoxFit.cover,
+                                              ),
                                             ),
                                     ),
                                   ),
@@ -106,6 +145,7 @@ class _SignupPageState extends State<SignupPage> {
                               ),
                               child: Column(
                                 children: <Widget>[
+                                  UserTypeWidget(),
                                   Container(
                                     padding: EdgeInsets.all(8.0),
                                     decoration: BoxDecoration(
