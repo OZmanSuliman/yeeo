@@ -12,9 +12,9 @@ import 'package:flutter/material.dart';
 
 ThemeData appTheme() {
   return ThemeData(
-    primaryColor: Color(0xFFF3BC4F),
-    primaryColorDark: Color(0xFFF5E9D0),
-    primaryColorLight: Color(0xFFF8B122),
+    primaryColor: Color(0xFFfbe4b2),
+    primaryColorDark: Color(0xFFC7B285),
+    primaryColorLight: Color(0xFFFCF3E1),
     accentColor: Color(0xFFA3A3A3),
     hintColor: Color(0xff8D8D8D),
     dividerColor: Color(0xffEDEDED),

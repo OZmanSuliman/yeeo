@@ -22,7 +22,7 @@ class UserTypeWidget extends StatelessWidget {
                   builder: (context, child) => Transform.rotate(
                     angle: provider.arrowAnimation1.value,
                     child: Image.asset(
-                      "assets/images/icon.png",
+                      "assets/images/logo.png",
                       width: 30,
                       height: 30,
                     ),
@@ -61,7 +61,7 @@ class UserTypeWidget extends StatelessWidget {
                   builder: (context, child) => Transform.rotate(
                     angle: provider.arrowAnimation2.value,
                     child: Image.asset(
-                      "assets/images/icon.png",
+                      "assets/images/logo.png",
                       width: 30,
                       height: 30,
                     ),

@@ -75,16 +75,27 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   child: FadeAnimation(
                       1.6,
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           SizedBox(
                             height: 30,
                           ),
-                          Row(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image.asset("assets/images/icon_white.png"),
-                            ],
+                          Visibility(
+                            visible: false,
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image.asset(
+                                  "assets/images/logo_white.png",
+                                  width: 70,
+                                  height: 70,
+                                ),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                              ],
+                            ),
                           ),
                           Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
