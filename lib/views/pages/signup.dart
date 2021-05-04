@@ -223,7 +223,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                       keyboardType: TextInputType.phone,
                                       decoration: InputDecoration(
                                           border: InputBorder.none,
-                                          labelText: "DOB",
+                                          labelText: "date of birth",
                                           labelStyle: TextStyle(
                                               color: Colors.grey[400]),
                                           suffixIcon: GestureDetector(
@@ -269,7 +269,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                 suffixIcon: GestureDetector(
                                                   child: IconButton(
                                                     icon: Icon(
-                                                      Icons.add_call,
+                                                      Icons.add,
                                                       color: appTheme()
                                                           .primaryColor,
                                                     ),
@@ -346,7 +346,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                 suffixIcon: GestureDetector(
                                                   child: IconButton(
                                                     icon: Icon(
-                                                      Icons.add_business,
+                                                      Icons.add,
                                                       color: appTheme()
                                                           .primaryColor,
                                                     ),

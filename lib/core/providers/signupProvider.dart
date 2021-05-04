@@ -145,7 +145,7 @@ class SignUpProvider extends ChangeNotifier {
   }
 
   selectGender(selectedType) {
-    type = type;
+    type = selectedType;
     notifyListeners();
   }
 

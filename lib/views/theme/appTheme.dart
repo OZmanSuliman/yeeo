@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 ThemeData appTheme() {
   return ThemeData(
     primaryColor: Color(0xFFfbe4b2),
+    primarySwatch: Colors.amber,
     primaryColorDark: Color(0xFFC7B285),
     primaryColorLight: Color(0xFFFCF3E1),
     accentColor: Color(0xFFA3A3A3),

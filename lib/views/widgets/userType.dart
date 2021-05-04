@@ -40,6 +40,12 @@ class UserTypeWidget extends StatelessWidget {
                 ),
               ],
             )),
+        Container(
+          color: Colors.grey,
+          width: 2,
+          height: 18,
+          margin: EdgeInsets.only(right: 10, left: 10),
+        ),
         GestureDetector(
             onTap: () => Provider.of<LoginProvider>(context, listen: false)
                 .switchType(2),
