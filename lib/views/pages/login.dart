@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             image: AssetImage('assets/images/background.png'),
                             fit: BoxFit.fill)),
                     child: FadeAnimation(
-                        1.6,
+                        0.6,
                         Stack(
                           children: [
                             Positioned(
@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               width: 80.w,
                               height: 200.h,
                               child: FadeAnimation(
-                                  1,
+                                  1.3,
                                   Container(
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
@@ -105,7 +105,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               width: 80.w,
                               height: 150.h,
                               child: FadeAnimation(
-                                  1.3,
+                                  1.5,
                                   Container(
                                     decoration: BoxDecoration(
                                         image: DecorationImage(
@@ -129,7 +129,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             ),
                             Positioned(
                               child: FadeAnimation(
-                                  1.6,
+                                  0.5,
                                   Container(
                                     margin: EdgeInsetsResponsive.only(top: 50),
                                     child: Center(
@@ -152,7 +152,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                   child: Column(
                     children: <Widget>[
                       FadeAnimation(
-                          1.8,
+                          0.3,
                           Container(
                             padding: EdgeInsetsResponsive.all(5),
                             decoration: BoxDecoration(
@@ -203,7 +203,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         height: 30.h,
                       ),
                       FadeAnimation(
-                          2,
+                          0.5,
                           GestureDetector(
                             onTap: () {
                               Provider.of<LoginProvider>(context, listen: false)
@@ -231,7 +231,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         height: 30.h,
                       ),
                       FadeAnimation(
-                          1.5,
+                          0.6,
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -250,7 +250,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                   child: Text(
                                     "Register",
                                     style: TextStyle(
-                                        color: appTheme().primaryColor),
+                                        color: appTheme().primaryColorDark),
                                   )),
                             ],
                           )),

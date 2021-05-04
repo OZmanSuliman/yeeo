@@ -94,7 +94,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                         children: <Widget>[
                           Positioned(
                             child: FadeAnimation(
-                                1.6,
+                                0.6,
                                 Container(
                                   margin: EdgeInsetsResponsive.only(bottom: 20),
                                   child: Center(
@@ -148,7 +148,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                       child: Column(
                         children: <Widget>[
                           FadeAnimation(
-                              1.8,
+                              0.8,
                               Container(
                                 padding: EdgeInsetsResponsive.all(5),
                                 decoration: BoxDecoration(
@@ -238,7 +238,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                         keyboardType: TextInputType.phone,
                                         decoration: InputDecoration(
                                             border: InputBorder.none,
-                                            labelText: "DOB",
+                                            labelText: "date of birth",
                                             labelStyle: TextStyle(
                                                 color: Colors.grey[400]),
                                             suffixIcon: GestureDetector(
@@ -287,7 +287,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                   suffixIcon: GestureDetector(
                                                     child: IconButton(
                                                       icon: Icon(
-                                                        Icons.add_call,
+                                                        Icons.add,
                                                         color: appTheme()
                                                             .primaryColor,
                                                       ),
@@ -368,7 +368,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                   suffixIcon: GestureDetector(
                                                     child: IconButton(
                                                       icon: Icon(
-                                                        Icons.add_business,
+                                                        Icons.add,
                                                         color: appTheme()
                                                             .primaryColor,
                                                       ),
@@ -488,7 +488,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                             height: 30,
                           ),
                           FadeAnimation(
-                              2,
+                              1,
                               GestureDetector(
                                 onTap: () {
                                   provider.onSignUpTap(context);
@@ -516,7 +516,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                             height: 30,
                           ),
                           FadeAnimation(
-                              1.5,
+                              0.5,
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -531,7 +531,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                     child: Text(
                                       "Login",
                                       style: TextStyle(
-                                          color: appTheme().primaryColor),
+                                          color: appTheme().primaryColorDark),
                                     ),
                                   ),
                                 ],
