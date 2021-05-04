@@ -8,6 +8,7 @@ class SplashProvider extends ChangeNotifier {
   final dbHelper = DatabaseHelper.instance;
   checkLoginStatus(context) async {
     try {
+      await Future.delayed(Duration(milliseconds: 1500));
       final List<Map<String, Object>> myUser = await dbHelper.getMyUser();
       if (myUser != null) {
         Navigator.push(

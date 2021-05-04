@@ -32,7 +32,7 @@
 24-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-78
 25
 26    <application
-26-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:12:2-39:16
+26-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:12:2-40:16
 27        android:name="io.flutter.app.FlutterApplication"
 27-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:12:59-107
 28        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
@@ -96,34 +96,42 @@
 64-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:31:15-62
 65            </intent-filter>
 66        </activity>
-67        <!--
-68		Don't delete the meta-data below.
-69		This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-70        -->
-71        <meta-data
-71-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:38:3-66
-72            android:name="flutterEmbedding"
-72-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:38:14-45
-73            android:value="2" />
-73-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:38:46-63
-74
-75        <provider
-75-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-19:20
-76            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-76-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-82
-77            android:authorities="com.example.yeeo.flutter.image_provider"
-77-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-74
-78            android:exported="false"
-78-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
-79            android:grantUriPermissions="true" >
-79-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-47
-80            <meta-data
-80-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:75
-81                android:name="android.support.FILE_PROVIDER_PATHS"
-81-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-67
-82                android:resource="@xml/flutter_image_picker_file_paths" />
-82-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-72
-83        </provider>
-84    </application>
-85
-86</manifest>
+67        <activity
+67-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:34:3-157
+68            android:name="com.yalantis.ucrop.UCropActivity"
+68-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:34:13-60
+69            android:screenOrientation="portrait"
+69-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:34:61-97
+70            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+70-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:34:98-154
+71        <!--
+72		Don't delete the meta-data below.
+73		This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+74        -->
+75        <meta-data
+75-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:39:3-66
+76            android:name="flutterEmbedding"
+76-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:39:14-45
+77            android:value="2" />
+77-->/Users/osmansolomon/Desktop/yeeo/android/app/src/main/AndroidManifest.xml:39:46-63
+78
+79        <provider
+79-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:9-19:20
+80            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
+80-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-82
+81            android:authorities="com.example.yeeo.flutter.image_provider"
+81-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-74
+82            android:exported="false"
+82-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-37
+83            android:grantUriPermissions="true" >
+83-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:13-47
+84            <meta-data
+84-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:16:13-18:75
+85                android:name="android.support.FILE_PROVIDER_PATHS"
+85-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-67
+86                android:resource="@xml/flutter_image_picker_file_paths" />
+86-->[:image_picker] /Users/osmansolomon/Desktop/yeeo/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-72
+87        </provider>
+88    </application>
+89
+90</manifest>
