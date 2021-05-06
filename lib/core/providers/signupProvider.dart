@@ -24,10 +24,15 @@ class SignUpProvider extends ChangeNotifier {
   DateTime selectedDate = DateTime.now();
   List<String> phones = [];
   List<String> addresses = [];
-
+  bool accepted = false;
   var type = "male";
   File img;
   int isImage = 0;
+  onTapAcceept() {
+    accepted = !accepted;
+    notifyListeners();
+  }
+
   pickerGallary(int indx) async {
     print('Picker is called');
 

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/loginProvider.dart';
-import 'package:yeeo/views/theme/appTheme.dart';
 
 class UserTypeWidget extends StatelessWidget {
   @override
@@ -23,65 +22,62 @@ class UserTypeWidget extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          SizedBox(
+            width: 60.w,
+          ),
           GestureDetector(
               onTap: () => Provider.of<LoginProvider>(context, listen: false)
                   .switchType(1),
               child: Row(
                 children: [
-                  AnimatedBuilder(
-                    animation: provider.arrowAnimationController1,
-                    builder: (context, child) => Transform.rotate(
-                      angle: provider.arrowAnimation1.value,
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        width: 30,
-                        height: 30,
-                      ),
-                    ),
+                  Text(
+                    "User",
+                    style: TextStyle(
+                        decoration: provider.userType == 1
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        color: Colors.black),
                   ),
                   SizedBox(
                     width: 10,
                   ),
-                  Text(
-                    "User",
-                    style: TextStyle(
-                        color: provider.userType == 1
-                            ? appTheme().primaryColor
-                            : Colors.black),
+                  Padding(
+                    padding: EdgeInsetsResponsive.only(bottom: 8.0),
+                    child: Transform.rotate(
+                      angle: 3,
+                      child: Image.asset(
+                        provider.userType == 1
+                            ? "assets/images/logo.png"
+                            : "assets/images/logo_white.png",
+                        width: 20,
+                        height: 30,
+                      ),
+                    ),
                   ),
                 ],
               )),
-          Container(
-            color: Colors.grey,
-            width: 2,
-            height: 18,
-            margin: EdgeInsetsResponsive.only(right: 10, left: 10),
-          ),
           GestureDetector(
               onTap: () => Provider.of<LoginProvider>(context, listen: false)
                   .switchType(2),
               child: Row(
                 children: [
-                  Text(
-                    "Service Provider",
-                    style: TextStyle(
-                      color: provider.userType == 2
-                          ? appTheme().primaryColorDark
-                          : Colors.black,
-                    ),
+                  Image.asset(
+                    provider.userType == 2
+                        ? "assets/images/logo.png"
+                        : "assets/images/logo_white.png",
+                    width: 20,
+                    height: 30,
                   ),
                   SizedBox(
                     width: 10,
                   ),
-                  AnimatedBuilder(
-                    animation: provider.arrowAnimationController2,
-                    builder: (context, child) => Transform.rotate(
-                      angle: provider.arrowAnimation2.value,
-                      child: Image.asset(
-                        "assets/images/logo.png",
-                        width: 30,
-                        height: 30,
-                      ),
+                  Text(
+                    "Service Provider",
+                    style: TextStyle(
+                      decoration: provider.userType == 2
+                          ? TextDecoration.underline
+                          : TextDecoration.none,
+                      color: Colors.black,
                     ),
                   ),
                 ],

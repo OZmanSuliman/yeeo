@@ -18,13 +18,6 @@ class LoginProvider extends ChangeNotifier {
   AnimationController arrowAnimationController2;
   switchType(type) {
     userType = type;
-    if (type == 1) {
-      arrowAnimationController1.reverse();
-      arrowAnimationController2.forward();
-    } else {
-      arrowAnimationController2.reverse();
-      arrowAnimationController1.forward();
-    }
 
     notifyListeners();
   }

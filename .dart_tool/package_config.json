@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "archive",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/archive-2.0.13",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.1.2",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.12"
     },
     {
       "name": "args",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/args-1.6.0",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.0.0",
       "packageUri": "lib/",
-      "languageVersion": "2.3"
+      "languageVersion": "2.12"
     },
     {
       "name": "async",
@@ -50,16 +50,10 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "convert",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/convert-2.1.1",
-      "packageUri": "lib/",
-      "languageVersion": "1.17"
-    },
-    {
       "name": "crypto",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-2.1.5",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/crypto-3.0.1",
       "packageUri": "lib/",
-      "languageVersion": "2.3"
+      "languageVersion": "2.12"
     },
     {
       "name": "cupertino_icons",
@@ -105,15 +99,15 @@
     },
     {
       "name": "flutter_launcher_icons",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.7.5",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.0",
       "packageUri": "lib/",
-      "languageVersion": "2.2"
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_native_splash",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-0.2.11",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-1.1.8+4",
       "packageUri": "lib/",
-      "languageVersion": "2.2"
+      "languageVersion": "2.12"
     },
     {
       "name": "flutter_plugin_android_lifecycle",
@@ -135,9 +129,9 @@
     },
     {
       "name": "image",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/image-2.1.19",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.0.2",
       "packageUri": "lib/",
-      "languageVersion": "2.0"
+      "languageVersion": "2.12"
     },
     {
       "name": "image_cropper",
@@ -219,9 +213,9 @@
     },
     {
       "name": "petitparser",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-3.1.0",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/petitparser-4.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     },
     {
       "name": "platform",
@@ -326,6 +320,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/universal_io-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.0",
       "packageUri": "lib/",
@@ -345,15 +345,15 @@
     },
     {
       "name": "xml",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/xml-4.5.1",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/xml-5.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.7"
+      "languageVersion": "2.12"
     },
     {
       "name": "yaml",
-      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-2.2.1",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/yaml-3.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.4"
+      "languageVersion": "2.12"
     },
     {
       "name": "yeeo",
@@ -362,7 +362,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-05-04T07:46:48.713181Z",
+  "generated": "2021-05-06T09:52:26.062431Z",
   "generator": "pub",
   "generatorVersion": "2.12.3"
 }

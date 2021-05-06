@@ -1,13 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/loginProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
-import 'package:yeeo/views/Animation/FadeAnimation.dart';
-import 'package:page_transition/page_transition.dart';
-import 'package:provider/provider.dart';
-import 'package:yeeo/views/theme/appTheme.dart';
 import 'package:yeeo/views/widgets/userType.dart';
 
 import 'signup.dart';
@@ -21,45 +19,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    initAnimation();
-  }
-
-  initAnimation() {
-    Provider.of<LoginProvider>(context, listen: false)
-            .arrowAnimationController1 =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    Provider.of<LoginProvider>(context, listen: false).arrowAnimation1 =
-        Tween(begin: 0.0, end: pi).animate(
-            Provider.of<LoginProvider>(context, listen: false)
-                .arrowAnimationController1);
-
-    Provider.of<LoginProvider>(context, listen: false)
-            .arrowAnimationController2 =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    Provider.of<LoginProvider>(context, listen: false).arrowAnimation2 =
-        Tween(begin: 0.0, end: pi).animate(
-            Provider.of<LoginProvider>(context, listen: false)
-                .arrowAnimationController2);
-    if (Provider.of<LoginProvider>(context, listen: false).userType == 1) {
-      Provider.of<LoginProvider>(context, listen: false)
-          .arrowAnimationController1
-          .reverse();
-      Provider.of<LoginProvider>(context, listen: false)
-          .arrowAnimationController2
-          .forward();
-    } else {
-      Provider.of<LoginProvider>(context, listen: false)
-          .arrowAnimationController2
-          .reverse();
-      Provider.of<LoginProvider>(context, listen: false)
-          .arrowAnimationController1
-          .forward();
-    }
   }
 
   @override
   Widget build(BuildContext context) {
     LoginProvider provider = Provider.of<LoginProvider>(context, listen: true);
+    var height = MediaQuery.of(context).size.height;
     ResponsiveWidgets.init(
       context,
       height: 725.0,
@@ -71,108 +36,73 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
       width: 360.0,
       allowFontScaling: true,
       child: Scaffold(
-          body: SingleChildScrollView(
-        child: Form(
-          key: Provider.of<LoginProvider>(context, listen: false).loginFormKey,
-          child: Container(
-            child: Column(
-              children: <Widget>[
-                Container(
-                    height: 350.h,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/images/background.png'),
-                            fit: BoxFit.fill)),
-                    child: FadeAnimation(
-                        0.6,
-                        Stack(
+          body: Form(
+        key: Provider.of<LoginProvider>(context, listen: false).loginFormKey,
+        child: Container(
+            height: height,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: AssetImage('assets/images/background.png'),
+                    fit: BoxFit.fill)),
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: EdgeInsetsResponsive.only(top: 150),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Image.asset(
+                          'assets/images/logo.png',
+                          width: 90.w,
+                          height: 90.h,
+                        ),
+                        SizedBox(
+                          width: 50.w,
+                        )
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsetsResponsive.only(
+                        left: 30.0, right: 30, top: 55),
+                    child: Column(
+                      children: <Widget>[
+                        UserTypeWidget(),
+                        Row(
                           children: [
-                            Positioned(
-                              left: 30.w,
-                              width: 80.w,
-                              height: 200.h,
-                              child: FadeAnimation(
-                                  1.3,
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/light-1.png'))),
-                                  )),
+                            SizedBox(
+                              width: 60.w,
                             ),
-                            Positioned(
-                              left: 140.w,
-                              width: 80.w,
-                              height: 150.h,
-                              child: FadeAnimation(
-                                  1.5,
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/light-2.png'))),
-                                  )),
-                            ),
-                            Positioned(
-                              right: 40.w,
-                              top: 40.h,
-                              width: 80.w,
-                              height: 150.h,
-                              child: FadeAnimation(
-                                  1.5,
-                                  Container(
-                                    decoration: BoxDecoration(
-                                        image: DecorationImage(
-                                            image: AssetImage(
-                                                'assets/images/clock.png'))),
-                                  )),
-                            ),
-                            Positioned(
-                              child: FadeAnimation(
-                                  0.5,
-                                  Container(
-                                    margin: EdgeInsetsResponsive.only(top: 50),
-                                    child: Center(
-                                      child: Text(
-                                        "Login",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontSize: ScreenUtil().setSp(40),
-                                            fontFamily: "Salsa",
-                                            fontWeight: FontWeight.bold),
-                                      ),
-                                    ),
-                                  )),
+                            GestureDetector(
+                              onTap: () {
+                                Provider.of<LoginProvider>(context,
+                                        listen: false)
+                                    .login(context);
+                              },
+                              child: Container(
+                                  padding: EdgeInsetsResponsive.all(8),
+                                  color: Colors.grey[400],
+                                  child: Text("Login !")),
                             ),
                           ],
-                        ))),
-                Padding(
-                  padding:
-                      EdgeInsetsResponsive.only(left: 30.0, right: 30, top: 25),
-                  child: Column(
-                    children: <Widget>[
-                      FadeAnimation(
-                          0.3,
-                          Container(
-                            padding: EdgeInsetsResponsive.all(5),
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              children: <Widget>[
-                                UserTypeWidget(),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Column(
+                              children: [
                                 Container(
+                                  width: 250.w,
+                                  height: 70.h,
                                   padding: EdgeInsetsResponsive.all(8.0),
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Colors.grey[100]))),
                                   child: TextFormField(
                                     controller: provider.emailController,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
-                                        border: InputBorder.none,
+                                        border: new OutlineInputBorder(
+                                            borderSide: new BorderSide(
+                                                color: Colors.black)),
                                         labelText: "Email",
                                         labelStyle:
                                             TextStyle(color: Colors.grey[400])),
@@ -180,87 +110,97 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                   ),
                                 ),
                                 Container(
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Colors.grey[100]))),
+                                  width: 250.w,
+                                  height: 70.h,
                                   padding: EdgeInsetsResponsive.all(8.0),
                                   child: TextFormField(
                                       controller: provider.passwordController,
                                       obscureText: true,
                                       decoration: InputDecoration(
-                                          border: InputBorder.none,
+                                          border: new OutlineInputBorder(
+                                              borderSide: new BorderSide(
+                                                  color: Colors.black)),
                                           labelText: "Password",
                                           labelStyle: TextStyle(
                                               color: Colors.grey[400])),
                                       validator:
                                           Validator.validatePasswordLength),
-                                )
+                                ),
                               ],
                             ),
-                          )),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      FadeAnimation(
-                          0.5,
-                          GestureDetector(
-                            onTap: () {
-                              Provider.of<LoginProvider>(context, listen: false)
-                                  .login(context);
-                            },
-                            child: Container(
-                              height: 50.h,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  gradient: LinearGradient(colors: [
-                                    appTheme().primaryColor,
-                                    appTheme().primaryColor,
-                                  ])),
-                              child: Center(
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        Text(
+                          "Or",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          height: 5.h,
+                        ),
+                        Text(
+                          "You need something?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 10),
+                        ),
+                        Text(
+                          "Type it say it and you will recive a free qoutation",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 10),
+                        ),
+                        SizedBox(
+                          height: 14.h,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 20),
                             ),
-                          )),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      FadeAnimation(
-                          0.6,
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "New User?  ",
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              GestureDetector(
-                                  onTap: () {
-                                    Navigator.push(
-                                        context,
-                                        PageTransition(
-                                            type: PageTransitionType.fade,
-                                            child: SignupPage()));
-                                  },
-                                  child: Text(
-                                    "Register",
-                                    style: TextStyle(
-                                        color: appTheme().primaryColorDark),
-                                  )),
-                            ],
-                          )),
-                    ],
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
+                            Text(
+                              " | ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            Text(
+                              "Google",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                          ],
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  PageTransition(
+                                      type: PageTransitionType.fade,
+                                      child: SignupPage()));
+                            },
+                            child: Text(
+                              "Sign Up !",
+                              style: TextStyle(fontWeight: FontWeight.bold),
+                            )),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        Text(
+                          "   copyrights 2021    yee.LLC  ",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )),
       )),
     );
   }
