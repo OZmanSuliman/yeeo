@@ -26,5 +26,11 @@
     "Wrong cereditials!\nplease enter a correct username and password then try again": "Wrong cereditials!\nplease enter a correct username and password then try again",
     "Wrong cereditials!\nThis user doesn't exist": "Wrong cereditials!\nThis user doesn't exist",
     "Error": "Error",
-    "CLOSE": "CLOSE"
+    "CLOSE": "CLOSE",
+    "Language": "Language",
+    "job describtion": "job describtion",
+    "Duration": "Duration",
+    "Location": "Location",
+    "Budget": "Budget",
+    "Send": "Send"
 }

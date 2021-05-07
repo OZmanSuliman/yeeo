@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/splashProvider.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class Splash extends StatefulWidget {
   @override

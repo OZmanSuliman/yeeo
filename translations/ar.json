@@ -26,5 +26,11 @@
     "Wrong cereditials!\nplease enter a correct username and password then try again": " بيانات خاطئة \nرجاءً ادخل بيانات صحيحة",
     "Wrong cereditials!\nThis user doesn't exist": " بيانات خاطئة  \n المستخدم غير موجود",
     "Error": "خطأ",
-    "CLOSE": "اغلق"
+    "CLOSE": "اغلق",
+    "Language": "اللغة",
+    "job describtion": "وصف العمل",
+    "Duration": "المدة",
+    "Location": "الموقع",
+    "Budget": "الميزانية",
+    "Send": "ارسال"
 }

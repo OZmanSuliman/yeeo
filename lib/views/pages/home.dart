@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class HomePage extends StatefulWidget {
   final String email;
@@ -46,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         padding: EdgeInsetsResponsive.fromLTRB(15, 10, 15, 10),
                         color: appTheme().primaryColor,
-                        child: Text("Language"),
+                        child: Text("Language".tr()),
                       ),
                       SizedBox(
                         width: 50.w,
@@ -61,7 +62,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Container(
                         padding: EdgeInsetsResponsive.all(10),
-                        child: Text("job describtion"),
+                        child: Text("job describtion".tr()),
                       ),
                     ],
                   ),
@@ -213,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: 5.w,
                                     ),
-                                    Text("Duration"),
+                                    Text("Duration".tr()),
                                   ],
                                 ),
                                 Text("10 Days"),
@@ -242,7 +243,7 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: 5.w,
                                     ),
-                                    Text("Budget"),
+                                    Text("Budget".tr()),
                                   ],
                                 ),
                                 Text("1000 AED"),
@@ -262,7 +263,7 @@ class _HomePageState extends State<HomePage> {
                                     SizedBox(
                                       width: 5.w,
                                     ),
-                                    Text("Location"),
+                                    Text("Location".tr()),
                                   ],
                                 ),
                                 Text("Dubai, Deira"),
@@ -283,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              Text("Send"),
+                              Text("Send".tr()),
                               Transform.rotate(
                                 angle: 5,
                                 child: Image.asset(
