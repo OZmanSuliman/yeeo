@@ -19,7 +19,7 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    context.locale = Locale('ar');
+    // context.locale = Locale('ar');
     var height = MediaQuery.of(context).size.height;
     ResponsiveWidgets.init(
       context,
