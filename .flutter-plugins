@@ -1,11 +1,11 @@
 # This is a generated file; do not edit or check into version control.
 flutter_plugin_android_lifecycle=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-1.0.11/
-image_cropper=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/image_cropper-1.3.1/
+image_cropper=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/image_cropper-1.4.0/
 image_picker=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/image_picker-0.6.5+3/
 path_provider=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider-1.6.28/
 path_provider_linux=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_linux-0.0.1+2/
 path_provider_macos=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-0.0.4+8/
-path_provider_windows=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-0.0.4+3/
+path_provider_windows=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_windows-0.0.5/
 shared_preferences=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences-0.5.12+4/
 shared_preferences_linux=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_linux-0.0.2+4/
 shared_preferences_macos=/Users/osmansolomon/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/shared_preferences_macos-0.0.1+11/

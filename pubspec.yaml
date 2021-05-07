@@ -21,10 +21,10 @@ dependencies:
   image_cropper: ^1.1.0
   responsive_widgets: ^2.0.1
 dev_dependencies:
-  flutter_native_splash: ^0.2.9
+  flutter_native_splash: ^1.1.8+4
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.7.4
+  flutter_launcher_icons: ^0.9.0
 flutter_icons:
   android: "launcher_icon"
   ios: false
@@ -34,7 +34,8 @@ flutter_icons:
 flutter_native_splash:
   color: "#ffffff"
   image: assets/images/splash.png
-  android_fullscreen: false
+  ios_content_mode: scaleToFill
+  android_gravity: fill
 flutter:
   uses-material-design: true
 
