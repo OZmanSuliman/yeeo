@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/core/database/database_helper.dart';
 import 'package:yeeo/views/pages/home.dart';
 import 'package:yeeo/views/widgets/dialogs.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class LoginProvider extends ChangeNotifier {
   final loginFormKey = GlobalKey<FormState>();
@@ -25,7 +25,6 @@ class LoginProvider extends ChangeNotifier {
 
   login(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('query all rows:');
     user = prefs.getString("user");
 
     if (user != null) {
@@ -41,12 +40,13 @@ class LoginProvider extends ChangeNotifier {
       } else {
         Dialogs d = new Dialogs();
         d.wrong(
-            "Wrong cereditials!\nplease enter a correct username and password then try again",
+            "Wrong cereditials!\nplease enter a correct username and password then try again"
+                .tr(),
             context);
       }
     } else {
       Dialogs d = new Dialogs();
-      d.wrong("Wrong cereditials!\nThis user doesn't exist", context);
+      d.wrong("Wrong cereditials!\nThis user doesn't exist".tr(), context);
     }
   }
 }

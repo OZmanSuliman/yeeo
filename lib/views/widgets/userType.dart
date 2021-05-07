@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/loginProvider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class UserTypeWidget extends StatelessWidget {
   @override
@@ -31,7 +32,7 @@ class UserTypeWidget extends StatelessWidget {
               child: Row(
                 children: [
                   Text(
-                    "User",
+                    "User".tr(),
                     style: TextStyle(
                         decoration: provider.userType == 1
                             ? TextDecoration.underline
@@ -72,7 +73,7 @@ class UserTypeWidget extends StatelessWidget {
                     width: 10,
                   ),
                   Text(
-                    "Service Provider",
+                    "Service Provider".tr(),
                     style: TextStyle(
                       decoration: provider.userType == 2
                           ? TextDecoration.underline

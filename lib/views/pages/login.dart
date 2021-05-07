@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
@@ -7,7 +5,7 @@ import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/loginProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/widgets/userType.dart';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -76,14 +74,20 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             ),
                             GestureDetector(
                               onTap: () {
-                                Provider.of<LoginProvider>(context,
+                                if (Provider.of<LoginProvider>(context,
                                         listen: false)
-                                    .login(context);
+                                    .loginFormKey
+                                    .currentState
+                                    .validate()) {
+                                  Provider.of<LoginProvider>(context,
+                                          listen: false)
+                                      .login(context);
+                                }
                               },
                               child: Container(
                                   padding: EdgeInsetsResponsive.all(8),
                                   color: Colors.grey[400],
-                                  child: Text("Login !")),
+                                  child: Text("Login !".tr())),
                             ),
                           ],
                         ),
@@ -103,7 +107,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                         border: new OutlineInputBorder(
                                             borderSide: new BorderSide(
                                                 color: Colors.black)),
-                                        labelText: "Email",
+                                        labelText: "Email".tr(),
                                         labelStyle:
                                             TextStyle(color: Colors.grey[400])),
                                     validator: Validator.validateEmail,
@@ -120,7 +124,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                           border: new OutlineInputBorder(
                                               borderSide: new BorderSide(
                                                   color: Colors.black)),
-                                          labelText: "Password",
+                                          labelText: "Password".tr(),
                                           labelStyle: TextStyle(
                                               color: Colors.grey[400])),
                                       validator:
@@ -134,19 +138,20 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           height: 20.h,
                         ),
                         Text(
-                          "Or",
+                          "Or".tr(),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                         SizedBox(
                           height: 5.h,
                         ),
                         Text(
-                          "You need something?",
+                          "You need something?".tr(),
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 10),
                         ),
                         Text(
-                          "Type it say it and you will recive a free qoutation",
+                          "Type it say it and you will recive a free qoutation"
+                              .tr(),
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 10),
                         ),
@@ -185,14 +190,14 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                       child: SignupPage()));
                             },
                             child: Text(
-                              "Sign Up !",
+                              "Sign Up !".tr(),
                               style: TextStyle(fontWeight: FontWeight.bold),
                             )),
                         SizedBox(
                           height: 30.h,
                         ),
                         Text(
-                          "   copyrights 2021    yee.LLC  ",
+                          "   copyrights 2021    yee.LLC  ".tr(),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],

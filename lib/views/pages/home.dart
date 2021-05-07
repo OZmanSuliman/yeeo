@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yeeo/core/providers/homeProvider.dart';
 
 class HomePage extends StatefulWidget {
   final String email;
@@ -17,7 +19,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(),
+      body: Center(
+          child: TextButton(
+        child: Text(
+          "logout",
+          style: TextStyle(color: Colors.black),
+        ),
+        onPressed: () =>
+            Provider.of<HomeProvider>(context, listen: false).logout(context),
+      )),
     );
   }
 }
