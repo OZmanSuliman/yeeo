@@ -1,10 +1,7 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
-import 'package:yeeo/core/providers/loginProvider.dart';
 import 'package:yeeo/core/providers/signupProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
