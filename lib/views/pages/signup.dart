@@ -5,7 +5,7 @@ import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/signupProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
-import 'package:yeeo/views/widgets/userType.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SignupPage extends StatefulWidget {
   @override
@@ -77,7 +77,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                   height: 50.h,
                                   child: Center(
                                     child: Text(
-                                      "Sign up !",
+                                      "Sign up !".tr(),
                                       style: TextStyle(
                                           fontFamily: "Salsa",
                                           fontSize: 19,
@@ -85,7 +85,6 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                     ),
                                   ),
                                 ),
-                                UserTypeWidget(),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: [
@@ -98,12 +97,12 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                               EdgeInsetsResponsive.all(8.0),
                                           child: TextFormField(
                                             controller:
-                                                provider.firstNameController,
+                                                provider.userNameController,
                                             decoration: InputDecoration(
                                                 border: new OutlineInputBorder(
                                                     borderSide: new BorderSide(
                                                         color: Colors.black)),
-                                                labelText: "username",
+                                                labelText: "username".tr(),
                                                 labelStyle: TextStyle(
                                                     color: Colors.grey[400])),
                                             validator: Validator.validateName,
@@ -125,7 +124,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                               new BorderSide(
                                                                   color: Colors
                                                                       .black)),
-                                                  labelText: "Password",
+                                                  labelText: "Password".tr(),
                                                   labelStyle: TextStyle(
                                                       color: Colors.grey[400])),
                                               validator: Validator
@@ -137,8 +136,8 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                           padding:
                                               EdgeInsetsResponsive.all(8.0),
                                           child: TextFormField(
-                                            controller:
-                                                provider.emailController,
+                                            controller: provider
+                                                .confirmPasswordController,
                                             obscureText: true,
                                             keyboardType:
                                                 TextInputType.visiblePassword,
@@ -146,7 +145,8 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                 border: new OutlineInputBorder(
                                                     borderSide: new BorderSide(
                                                         color: Colors.black)),
-                                                labelText: "Confirm Passowrd",
+                                                labelText:
+                                                    "Confirm Passowrd".tr(),
                                                 labelStyle: TextStyle(
                                                     color: Colors.grey[400])),
                                             validator: Validator
@@ -167,7 +167,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                 border: new OutlineInputBorder(
                                                     borderSide: new BorderSide(
                                                         color: Colors.black)),
-                                                labelText: "Email",
+                                                labelText: "Email".tr(),
                                                 labelStyle: TextStyle(
                                                     color: Colors.grey[400])),
                                             validator: Validator.validateEmail,
@@ -198,7 +198,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                 color: Colors.black)),
                                         child: Center(
                                           child: Text(
-                                            "Submit",
+                                            "Submit".tr(),
                                             style: TextStyle(
                                               fontFamily: "Salsa",
                                             ),
@@ -242,35 +242,13 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                     SizedBox(
                                       width: 10.w,
                                     ),
-                                    Text("Terms & Conditions",
+                                    Text("Terms & Conditions".tr(),
                                         style: TextStyle(
                                             color: Colors.grey, fontSize: 14)),
                                   ],
                                 ),
                               ],
                             ),
-                          ),
-                          SizedBox(
-                            height: 50.h,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Already have an account?  ",
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                      color: appTheme().primaryColorDark),
-                                ),
-                              ),
-                            ],
                           ),
                         ],
                       ),

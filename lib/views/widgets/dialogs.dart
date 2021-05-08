@@ -1,6 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Dialogs {
   Future<void> wrong(String message, BuildContext context) async {
@@ -21,7 +21,7 @@ class Dialogs {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    "Error",
+                    "Error".tr(),
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -36,9 +36,12 @@ class Dialogs {
                 SizedBox(
                   height: 20,
                 ),
-                Text(
-                  message,
-                  style: TextStyle(color: Colors.grey),
+                Center(
+                  child: Text(
+                    message,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.grey),
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -54,9 +57,11 @@ class Dialogs {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    FlatButton(
-                      child: Text("CLOSE"),
-                      textColor: Colors.red,
+                    TextButton(
+                      child: Text(
+                        "CLOSE".tr(),
+                        style: TextStyle(color: Colors.red),
+                      ),
                       onPressed: () {
                         Navigator.pop(context);
                       },

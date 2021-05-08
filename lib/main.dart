@@ -6,6 +6,7 @@ import 'core/providers/homeProvider.dart';
 import 'core/providers/loginProvider.dart';
 import 'core/providers/signupProvider.dart';
 import 'core/providers/splashProvider.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 void main() => runApp(MultiProvider(
       providers: [
@@ -14,9 +15,14 @@ void main() => runApp(MultiProvider(
         ChangeNotifierProvider(create: (_) => LoginProvider()),
         ChangeNotifierProvider(create: (_) => SplashProvider()),
       ],
-      child: MaterialApp(
-        theme: appTheme(),
-        debugShowCheckedModeBanner: false,
-        home: Splash(),
+      child: EasyLocalization(
+        supportedLocales: [Locale('ar'), Locale('en')],
+        path: 'translations',
+        fallbackLocale: Locale('ar'),
+        child: MaterialApp(
+          theme: appTheme(),
+          debugShowCheckedModeBanner: false,
+          home: Splash(),
+        ),
       ),
     ));
