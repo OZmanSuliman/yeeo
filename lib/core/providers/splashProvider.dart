@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/views/pages/home.dart';
-import 'package:yeeo/views/pages/login.dart';
+import 'package:yeeo/views/pages/main/home.dart';
+import 'package:yeeo/views/pages/auth/login.dart';
 import 'package:page_transition/page_transition.dart';
 
 class SplashProvider extends ChangeNotifier {
@@ -15,13 +15,8 @@ class SplashProvider extends ChangeNotifier {
       dynamic myUser = prefs.getString("user");
       myUser = json.decode(myUser);
       if (myUser != null) {
-        Navigator.push(
-            context,
-            PageTransition(
-                type: PageTransitionType.fade,
-                child: HomePage(
-                  email: myUser["email"],
-                )));
+        Navigator.push(context,
+            PageTransition(type: PageTransitionType.fade, child: HomePage()));
       } else {
         Navigator.push(context,
             PageTransition(type: PageTransitionType.fade, child: LoginPage()));

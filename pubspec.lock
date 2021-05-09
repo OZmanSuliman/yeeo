@@ -22,6 +22,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0"
+  auto_size_text:
+    dependency: "direct main"
+    description:
+      name: auto_size_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  auto_size_text_field:
+    dependency: "direct main"
+    description:
+      name: auto_size_text_field
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.7"
   boolean_selector:
     dependency: transitive
     description:
@@ -137,6 +151,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.8+4"
+  flutter_phoenix:
+    dependency: "direct main"
+    description:
+      name: flutter_phoenix
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:

@@ -26,6 +26,20 @@ class Validator {
     return null;
   }
 
+  static String validateEmptiness(String value) {
+    if (value.length == 0) {
+      return "This field can't be empty".tr();
+    }
+    return null;
+  }
+
+  static String validateEmptiness2(String value) {
+    if (value.length == 0) {
+      return "_______".tr();
+    }
+    return null;
+  }
+
   static String validateMobile(String value) {
     String pattern = r'(^[0-9]*$)';
     RegExp regExp = new RegExp(pattern);

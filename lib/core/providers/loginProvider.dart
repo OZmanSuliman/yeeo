@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/views/pages/home.dart';
+import 'package:yeeo/views/pages/main/home.dart';
 import 'package:yeeo/views/widgets/dialogs.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -30,13 +30,8 @@ class LoginProvider extends ChangeNotifier {
     if (user != null) {
       if (user["email"] == emailController.text &&
           user["password"] == passwordController.text) {
-        Navigator.pushReplacement(
-            context,
-            PageTransition(
-                type: PageTransitionType.fade,
-                child: HomePage(
-                  email: emailController.text,
-                )));
+        Navigator.pushReplacement(context,
+            PageTransition(type: PageTransitionType.fade, child: HomePage()));
       } else {
         Dialogs d = new Dialogs();
         d.wrong(
