@@ -32,5 +32,6 @@
     "Duration": "Duration",
     "Location": "Location",
     "Budget": "Budget",
-    "Send": "Send"
+    "Send": "Send",
+    "description": "description..."
 }

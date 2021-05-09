@@ -97,10 +97,12 @@ class _HomePageState extends State<HomePage> {
                                     BorderRadius.all(Radius.circular(20))),
                             height: 120.h,
                             child: TextFormField(
+                              textAlign: TextAlign.start,
                               keyboardType: TextInputType.multiline,
                               controller: provider.noteController,
                               minLines: 5,
                               decoration: InputDecoration(
+                                  hintText: "description".tr(),
                                   enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Colors.transparent),
