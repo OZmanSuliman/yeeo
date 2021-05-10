@@ -361,22 +361,28 @@ class _AddOfferState extends State<AddOffer> {
                                       width: 40.w,
                                     ),
                                     Container(
-                                      width: 140.w,
+                                      width: 120.w,
                                       height: 30.h,
                                       padding: EdgeInsetsResponsive.all(8.0),
                                       child: TextFormField(
+                                        expands: false,
                                         textAlign: TextAlign.start,
                                         controller: provider.durationController,
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         decoration: InputDecoration(
-                                            suffixIcon: Icon(
-                                              Icons.keyboard_arrow_down,
-                                              color: Colors.blue,
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                              ),
                                             ),
-                                            border: InputBorder.none,
+                                            border: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 0),
+                                            ),
                                             hintText: "Duration".tr(),
-                                            labelStyle: TextStyle(
+                                            hintStyle: TextStyle(
                                                 color: Colors.grey[400],
                                                 fontFamily: "Salsa-Regular")),
                                         validator: Validator.validateEmptiness2,
@@ -384,6 +390,10 @@ class _AddOfferState extends State<AddOffer> {
                                             fontSize: 12,
                                             fontFamily: "Salsa-Regular"),
                                       ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_down,
+                                      color: Colors.blue,
                                     ),
                                   ],
                                 ),
@@ -422,22 +432,28 @@ class _AddOfferState extends State<AddOffer> {
                                       width: 40.w,
                                     ),
                                     Container(
-                                      width: 140.w,
+                                      width: 120.w,
                                       height: 30.h,
                                       padding: EdgeInsetsResponsive.all(8.0),
                                       child: TextFormField(
+                                        expands: false,
                                         textAlign: TextAlign.start,
                                         controller: provider.budgetController,
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         decoration: InputDecoration(
-                                            suffixIcon: Icon(
-                                              Icons.keyboard_arrow_down,
-                                              color: Colors.blue,
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                              ),
                                             ),
-                                            border: InputBorder.none,
+                                            border: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 5),
+                                            ),
                                             hintText: "Budget".tr(),
-                                            labelStyle: TextStyle(
+                                            hintStyle: TextStyle(
                                                 color: Colors.grey[400],
                                                 fontFamily: "Salsa-Regular")),
                                         style: TextStyle(
@@ -445,6 +461,10 @@ class _AddOfferState extends State<AddOffer> {
                                             fontFamily: "Salsa-Regular"),
                                         validator: Validator.validateEmptiness2,
                                       ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_down,
+                                      color: Colors.blue,
                                     ),
                                   ],
                                 ),
@@ -482,22 +502,28 @@ class _AddOfferState extends State<AddOffer> {
                                       width: 40.w,
                                     ),
                                     Container(
-                                      width: 140.w,
+                                      width: 120.w,
                                       height: 30.h,
                                       padding: EdgeInsetsResponsive.all(8.0),
                                       child: TextFormField(
+                                        expands: false,
                                         textAlign: TextAlign.start,
                                         controller: provider.locationController,
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         decoration: InputDecoration(
-                                            suffixIcon: Icon(
-                                              Icons.keyboard_arrow_down,
-                                              color: Colors.blue,
+                                            enabledBorder: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                              ),
                                             ),
-                                            border: InputBorder.none,
+                                            border: UnderlineInputBorder(
+                                              borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 5),
+                                            ),
                                             hintText: "Location".tr(),
-                                            labelStyle: TextStyle(
+                                            hintStyle: TextStyle(
                                                 color: Colors.grey[400],
                                                 fontFamily: "Salsa-Regular")),
                                         style: TextStyle(
@@ -505,6 +531,10 @@ class _AddOfferState extends State<AddOffer> {
                                             fontFamily: "Salsa-Regular"),
                                         validator: Validator.validateEmptiness2,
                                       ),
+                                    ),
+                                    Icon(
+                                      Icons.keyboard_arrow_down,
+                                      color: Colors.blue,
                                     ),
                                   ],
                                 ),

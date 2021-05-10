@@ -35,7 +35,7 @@ class Validator {
 
   static String validateEmptiness2(String value) {
     if (value.length == 0) {
-      return "_______".tr();
+      return " ".tr();
     }
     return null;
   }
