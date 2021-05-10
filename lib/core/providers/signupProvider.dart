@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/views/pages/main/home.dart';
+import 'package:yeeo/views/pages/main/addOffer.dart';
 import 'package:yeeo/views/widgets/dialogs.dart';
 import 'package:easy_localization/easy_localization.dart';
 
@@ -28,7 +28,7 @@ class SignUpProvider extends ChangeNotifier {
     };
     prefs.setString("user", json.encode(row));
     Navigator.pushReplacement(context,
-        PageTransition(type: PageTransitionType.fade, child: HomePage()));
+        PageTransition(type: PageTransitionType.fade, child: AddOffer()));
   }
 
   onSignUpTap(context) {

@@ -27,9 +27,14 @@
 		<key>UIMainStoryboardFile</key>
 		<string>Main</string>
 		<key>NSCameraUsageDescription</key>
-		<string>App need access to your camera to be able to upload photos</string>
+		<string>Yeeo need access to your camera to be able to upload photos for your offer</string>
 		<key>NSPhotoLibraryUsageDescription</key>
-		<string>App need access to your camera to be able to upload photos</string>
+		<string>Yeeo need access to your camera to be able to upload photos for your offer</string>
+        <key>CFBundleLocalizations</key>
+        <array>
+            <string>en</string>
+            <string>ar</string>
+        </array>
 		<key>UIStatusBarHidden</key>
 		<false/>
 		<key>UISupportedInterfaceOrientations</key>

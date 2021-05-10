@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/views/pages/main/home.dart';
+import 'package:yeeo/views/pages/main/addOffer.dart';
 import 'package:yeeo/views/pages/auth/login.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -16,7 +16,7 @@ class SplashProvider extends ChangeNotifier {
       myUser = json.decode(myUser);
       if (myUser != null) {
         Navigator.push(context,
-            PageTransition(type: PageTransitionType.fade, child: HomePage()));
+            PageTransition(type: PageTransitionType.fade, child: AddOffer()));
       } else {
         Navigator.push(context,
             PageTransition(type: PageTransitionType.fade, child: LoginPage()));

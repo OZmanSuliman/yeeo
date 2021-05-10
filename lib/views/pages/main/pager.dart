@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/pagerProvider.dart';
 import 'package:yeeo/views/pages/main/basket.dart';
-import 'home.dart';
+import 'addOffer.dart';
 
 class Pager extends StatefulWidget {
   @override
@@ -16,7 +16,7 @@ class Pager extends StatefulWidget {
 
 class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
   List<Widget> pages = [
-    HomePage(),
+    AddOffer(),
     Basket(),
   ];
 
@@ -77,7 +77,7 @@ class AnimatedBottomNav extends StatelessWidget {
             child: InkWell(
               onTap: () => onChange(0),
               child: BottomNavItem(
-                icon: Icons.home,
+                icon: 'addOffer',
                 title: 'mainMenu'.tr(),
                 isActive: currentIndex == 0,
               ),
@@ -87,7 +87,7 @@ class AnimatedBottomNav extends StatelessWidget {
             child: InkWell(
               onTap: () => onChange(1),
               child: BottomNavItem(
-                icon: Icons.shopping_cart,
+                icon: 'basket',
                 title: "myProducts".tr(),
                 isActive: currentIndex == 1,
               ),
@@ -101,7 +101,7 @@ class AnimatedBottomNav extends StatelessWidget {
 
 class BottomNavItem extends StatelessWidget {
   final bool isActive;
-  final IconData icon;
+  final String icon;
   final Color activeColor;
   final Color inactiveColor;
   final String title;
@@ -136,9 +136,10 @@ class BottomNavItem extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Icon(
-                    icon,
-                    color: activeColor ?? Theme.of(context).primaryColor,
+                  Image.asset(
+                    'assets/images/$icon.png',
+                    width: 60.w,
+                    height: 60.h,
                   ),
                   const SizedBox(height: 5.0),
                   Container(
@@ -152,9 +153,10 @@ class BottomNavItem extends StatelessWidget {
                 ],
               ),
             )
-          : Icon(
-              icon,
-              color: inactiveColor ?? Colors.grey,
+          : Image.asset(
+              'assets/images/$icon.png',
+              width: 60.w,
+              height: 60.h,
             ),
     );
   }

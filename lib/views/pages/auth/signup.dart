@@ -51,7 +51,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                       child: Column(
                         children: <Widget>[
                           Container(
-                            margin: EdgeInsetsResponsive.only(top: 100),
+                            margin: EdgeInsetsResponsive.only(top: 100.h),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
@@ -80,7 +80,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                       "Sign up !".tr(),
                                       style: TextStyle(
                                           fontFamily: "Salsa",
-                                          fontSize: 19,
+                                          fontSize: ScreenUtil().setSp(19),
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
@@ -200,8 +200,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                           child: Text(
                                             "Submit".tr(),
                                             style: TextStyle(
-                                              fontFamily: "Salsa",
-                                            ),
+                                                fontWeight: FontWeight.bold),
                                           ),
                                         ),
                                       ),
@@ -234,7 +233,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                         child: provider.accepted
                                             ? Icon(
                                                 Icons.check,
-                                                size: 15,
+                                                size: ScreenUtil().setSp(15),
                                               )
                                             : Container(),
                                       ),
@@ -244,7 +243,8 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                     ),
                                     Text("Terms & Conditions".tr(),
                                         style: TextStyle(
-                                            color: Colors.grey, fontSize: 14)),
+                                            color: Colors.grey,
+                                            fontSize: ScreenUtil().setSp(14))),
                                   ],
                                 ),
                               ],

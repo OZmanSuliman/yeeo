@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
               child: Column(
                 children: [
                   Container(
-                    margin: EdgeInsetsResponsive.only(top: 150),
+                    margin: EdgeInsetsResponsive.only(top: 150.h),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
@@ -147,13 +147,15 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         Text(
                           "You need something?".tr(),
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 10),
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(10)),
                         ),
                         Text(
                           "Type it say it and you will recive a free qoutation"
                               .tr(),
                           style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 10),
+                              fontWeight: FontWeight.bold,
+                              fontSize: ScreenUtil().setSp(10)),
                         ),
                         SizedBox(
                           height: 14.h,
@@ -161,20 +163,22 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Text(
-                              "",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 20),
+                            Image.asset(
+                              "assets/images/apple.png",
+                              width: 16.w,
+                              height: 16.h,
                             ),
                             Text(
                               " | ",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(16)),
                             ),
                             Text(
                               "Google",
                               style: TextStyle(
-                                  fontWeight: FontWeight.bold, fontSize: 16),
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: ScreenUtil().setSp(16)),
                             ),
                           ],
                         ),

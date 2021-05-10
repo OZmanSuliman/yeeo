@@ -48,8 +48,9 @@ flutter:
     - assets/flrs/
     - assets/
     - translations/
+    - assets/fonts/
 
-fonts:
-  - family: Salsa
-    fonts:
-      - asset: assets/fonts/Salsa-Regular.ttf
+  fonts:
+    - family: Salsa-Regular
+      fonts:
+        - asset: assets/fonts/Salsa-Regular.ttf
