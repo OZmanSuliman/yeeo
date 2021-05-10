@@ -358,7 +358,7 @@ class _AddOfferState extends State<AddOffer> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 60.w,
+                                      width: 40.w,
                                     ),
                                     Container(
                                       width: 140.w,
@@ -419,7 +419,7 @@ class _AddOfferState extends State<AddOffer> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 60.w,
+                                      width: 40.w,
                                     ),
                                     Container(
                                       width: 140.w,
@@ -479,7 +479,7 @@ class _AddOfferState extends State<AddOffer> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 60.w,
+                                      width: 40.w,
                                     ),
                                     Container(
                                       width: 140.w,

@@ -12,13 +12,13 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    Provider.of<SplashProvider>(context, listen: false)
-        .checkLoginStatus(context);
+    WidgetsBinding.instance.addPostFrameCallback((_) =>
+        Provider.of<SplashProvider>(context, listen: false)
+            .checkLoginStatus(context));
   }
 
   @override
   Widget build(BuildContext context) {
-    // context.locale = Locale('ar');
     var height = MediaQuery.of(context).size.height;
     ResponsiveWidgets.init(
       context,

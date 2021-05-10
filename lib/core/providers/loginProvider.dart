@@ -1,9 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/views/pages/main/addOffer.dart';
-import 'package:yeeo/views/widgets/dialogs.dart';
-import 'package:page_transition/page_transition.dart';
+import 'dart:convert';
+
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:yeeo/views/pages/main/pager.dart';
+import 'package:yeeo/views/widgets/dialogs.dart';
 
 class LoginProvider extends ChangeNotifier {
   final loginFormKey = GlobalKey<FormState>();
@@ -26,12 +28,12 @@ class LoginProvider extends ChangeNotifier {
   login(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     user = prefs.getString("user");
-
+    user = json.decode(user);
     if (user != null) {
       if (user["email"] == emailController.text &&
           user["password"] == passwordController.text) {
         Navigator.pushReplacement(context,
-            PageTransition(type: PageTransitionType.fade, child: AddOffer()));
+            PageTransition(type: PageTransitionType.fade, child: Pager()));
       } else {
         Dialogs d = new Dialogs();
         d.wrong(

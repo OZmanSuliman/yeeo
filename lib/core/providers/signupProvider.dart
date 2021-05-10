@@ -1,10 +1,11 @@
 import 'dart:convert';
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:yeeo/views/pages/main/addOffer.dart';
+import 'package:yeeo/views/pages/main/pager.dart';
 import 'package:yeeo/views/widgets/dialogs.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class SignUpProvider extends ChangeNotifier {
   final signFormKey = GlobalKey<FormState>();
@@ -22,13 +23,14 @@ class SignUpProvider extends ChangeNotifier {
 
   void signup(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<String, dynamic> row = {
+    Map<String, dynamic> newUser = {
       "userName": userNameController.text,
       "email": emailController.text,
+      "password": passwordController.text
     };
-    prefs.setString("user", json.encode(row));
-    Navigator.pushReplacement(context,
-        PageTransition(type: PageTransitionType.fade, child: AddOffer()));
+    prefs.setString("user", json.encode(newUser));
+    Navigator.pushReplacement(
+        context, PageTransition(type: PageTransitionType.fade, child: Pager()));
   }
 
   onSignUpTap(context) {
