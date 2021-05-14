@@ -1,7 +1,7 @@
 # yeeo
 
 
-## Design Pattern 
+### Design Pattern 
 MVVM
 
 ## State Management 
