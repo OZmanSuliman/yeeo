@@ -1,6 +1,9 @@
 # yeeo
 
-A new Flutter application.
 
-#### Getting Started
+## Design Pattern 
+MVVM
+
+## State Management 
+Provider
  
