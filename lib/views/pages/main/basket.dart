@@ -1,3 +1,16 @@
+/*
+ *
+ *    *****   ******
+ *    *   *       *
+ *    *   *      *
+ *    *   *     *  
+ *    *****    *****
+ *
+ * Created on Fri May 14 2021
+ *
+ * Copyright (c) 2021 Osman Suliman
+ * oz.solomon99@gmail.com
+ */
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';

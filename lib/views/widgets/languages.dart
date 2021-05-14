@@ -1,3 +1,16 @@
+/*
+ *
+ *    *****   ******
+ *    *   *       *
+ *    *   *      *
+ *    *   *     *  
+ *    *****    *****
+ *
+ * Created on Fri May 14 2021
+ *
+ * Copyright (c) 2021 Osman Suliman
+ * oz.solomon99@gmail.com
+ */
 import 'package:flutter/material.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/models/languages.dart';

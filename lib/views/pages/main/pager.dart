@@ -1,3 +1,16 @@
+/*
+ *
+ *    *****   ******
+ *    *   *       *
+ *    *   *      *
+ *    *   *     *  
+ *    *****    *****
+ *
+ * Created on Fri May 14 2021
+ *
+ * Copyright (c) 2021 Osman Suliman
+ * oz.solomon99@gmail.com
+ */
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
