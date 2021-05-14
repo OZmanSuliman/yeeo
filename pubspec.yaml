@@ -54,3 +54,6 @@ flutter:
     - family: Salsa-Regular
       fonts:
         - asset: assets/fonts/Salsa-Regular.ttf
+    - family: Tharlon-Regular
+      fonts:
+        - asset: assets/fonts/Tharlon-Regular.ttf

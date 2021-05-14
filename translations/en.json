@@ -28,10 +28,20 @@
     "Error": "Error",
     "CLOSE": "CLOSE",
     "Language": "Language",
-    "job describtion": "job describtion",
+    "job describtion": "Job describtion",
     "Duration": "Duration",
     "Location": "Location",
     "Budget": "Budget",
     "Send": "Send",
-    "description": "description..."
+    "description": "description...",
+    "select city": "select City",
+    "Abu Dhabi": "Abu Dhabi",
+    "Dubai": "Dubai",
+    "Sharjah": "Sharjah",
+    "Ajman": "Ajman",
+    "Umm Al-Quwain": "Umm Al-Quwain",
+    "Fujairah": "Fujairah",
+    "Ras Al Khaimah": "Ras Al Khaimah",
+    "Camera": "Camera",
+    "Gallery": "Gallery"
 }

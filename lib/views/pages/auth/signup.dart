@@ -41,7 +41,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
               height: MediaQuery.of(context).size.height,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/images/background.png'),
+                      image: AssetImage('assets/images/signup_background.png'),
                       fit: BoxFit.fill)),
               child: SingleChildScrollView(
                 child: Column(
@@ -70,7 +70,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                             height: 60.w,
                           ),
                           Container(
-                            padding: EdgeInsetsResponsive.all(5),
+                            padding: EdgeInsetsResponsive.all(0),
                             child: Column(
                               children: <Widget>[
                                 Container(
@@ -80,19 +80,22 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                       "Sign up !".tr(),
                                       style: TextStyle(
                                           fontFamily: "Salsa",
-                                          fontSize: ScreenUtil().setSp(19),
+                                          fontSize: ScreenUtil().setSp(30),
                                           fontWeight: FontWeight.bold),
                                     ),
                                   ),
                                 ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
+                                    SizedBox(
+                                      width: 60.w,
+                                    ),
                                     Column(
                                       children: [
                                         Container(
-                                          width: 250.w,
-                                          height: 70.h,
+                                          width: 200.w,
+                                          height: 40.h,
                                           padding:
                                               EdgeInsetsResponsive.all(8.0),
                                           child: TextFormField(
@@ -109,8 +112,8 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                           ),
                                         ),
                                         Container(
-                                          width: 250.w,
-                                          height: 70.h,
+                                          width: 200.w,
+                                          height: 40.h,
                                           padding:
                                               EdgeInsetsResponsive.all(8.0),
                                           child: TextFormField(
@@ -131,8 +134,8 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                   .validatePasswordLength),
                                         ),
                                         Container(
-                                          width: 250.w,
-                                          height: 70.h,
+                                          width: 200.w,
+                                          height: 40.h,
                                           padding:
                                               EdgeInsetsResponsive.all(8.0),
                                           child: TextFormField(
@@ -154,8 +157,8 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                           ),
                                         ),
                                         Container(
-                                          width: 250.w,
-                                          height: 70.h,
+                                          width: 200.w,
+                                          height: 40.h,
                                           padding:
                                               EdgeInsetsResponsive.all(8.0),
                                           child: TextFormField(
@@ -183,7 +186,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                 Row(
                                   children: [
                                     SizedBox(
-                                      width: 50.w,
+                                      width: 65.w,
                                     ),
                                     GestureDetector(
                                       onTap: () {
@@ -214,7 +217,7 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
                                     SizedBox(
-                                      width: 50.w,
+                                      width: 65.w,
                                     ),
                                     GestureDetector(
                                       onTap: () => Provider.of<SignUpProvider>(

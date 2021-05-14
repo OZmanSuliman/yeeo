@@ -33,5 +33,15 @@
     "Location": "الموقع",
     "Budget": "الميزانية",
     "Send": "ارسال",
-    "description": "التفاصيل..."
+    "description": "التفاصيل...",
+    "select city": "اختر إمارة",
+    "Abu Dhabi": "ابو ظبي",
+    "Dubai": "دبي",
+    "Sharjah": "الشارقة",
+    "Ajman": "عجمان",
+    "Umm Al-Quwain": "أم القوين",
+    "Fujairah": "الفجيرة",
+    "Ras Al Khaimah": "رأس الخيمة",
+    "Camera": "الكاميرا",
+    "Gallery": "الاستديو"
 }

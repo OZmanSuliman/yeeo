@@ -33,9 +33,9 @@ class Validator {
     return null;
   }
 
-  static String validateEmptiness2(String value) {
-    if (value.length == 0) {
-      return " ".tr();
+  static String validateDropDown(String value) {
+    if (value == null) {
+      return "This field can't be empty".tr();
     }
     return null;
   }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
-import 'package:yeeo/core/providers/homeProvider.dart';
+import 'package:yeeo/core/providers/addOfferProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
 import 'package:yeeo/views/widgets/languages.dart';
@@ -24,10 +24,11 @@ class _AddOfferState extends State<AddOffer> {
 
   @override
   Widget build(BuildContext context) {
-    HomeProvider provider = Provider.of<HomeProvider>(context, listen: true);
-
+    AddOfferProvider provider =
+        Provider.of<AddOfferProvider>(context, listen: true);
+    AddOfferProvider providerFunc =
+        Provider.of<AddOfferProvider>(context, listen: true);
     var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
     ResponsiveWidgets.init(
       context,
       height: 725.0,
@@ -44,12 +45,30 @@ class _AddOfferState extends State<AddOffer> {
           body: GestureDetector(
             onTap: () => FocusScope.of(context).unfocus(),
             child: Form(
-              key:
-                  Provider.of<HomeProvider>(context, listen: false).homeFormKey,
+              key: Provider.of<AddOfferProvider>(context, listen: false)
+                  .homeFormKey,
               child: SafeArea(
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
+                      SizedBox(
+                        height: 8.h,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text("Yeeo",
+                              style: TextStyle(
+                                  fontFamily: "Salsa-Regular",
+                                  fontSize: ScreenUtil().setSp(30))),
+                        ],
+                      ),
+                      SizedBox(
+                        height: 5.h,
+                      ),
                       Image.asset('assets/images/addOfferBanner.png'),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
@@ -68,14 +87,30 @@ class _AddOfferState extends State<AddOffer> {
                           ),
                           Container(
                             padding: EdgeInsetsResponsive.all(10),
-                            child: Text("job describtion".tr()),
+                            child: Text(
+                              "job describtion".tr(),
+                              style: TextStyle(
+                                  fontFamily: "Tharlon-Regular",
+                                  fontSize: ScreenUtil().setSp(17),
+                                  fontWeight: context.locale == Locale("ar")
+                                      ? FontWeight.bold
+                                      : FontWeight.normal),
+                            ),
                           ),
                         ],
                       ),
                       Container(
-                        height: height - 220.h,
                         width: width - 50.w,
                         decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 1,
+                                blurRadius: 2,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
                             border: Border.all(
                                 color: appTheme().primaryColor, width: 4),
                             borderRadius:
@@ -84,8 +119,10 @@ class _AddOfferState extends State<AddOffer> {
                           children: [
                             Container(
                               margin: EdgeInsetsResponsive.all(20),
-                              padding:
-                                  EdgeInsetsResponsive.only(right: 5, left: 5),
+                              padding: EdgeInsetsResponsive.only(
+                                  right: context.locale == Locale("ar") ? 6 : 0,
+                                  left: context.locale != Locale("ar") ? 6 : 0,
+                                  top: 0),
                               decoration: BoxDecoration(
                                   color: appTheme().primaryColorLight,
                                   boxShadow: [
@@ -105,6 +142,7 @@ class _AddOfferState extends State<AddOffer> {
                                 controller: provider.noteController,
                                 minLines: 5,
                                 decoration: InputDecoration(
+                                    contentPadding: EdgeInsets.all(0),
                                     hintText: "description".tr(),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
@@ -137,7 +175,7 @@ class _AddOfferState extends State<AddOffer> {
                                           builder: (context) =>
                                               MediaPickDialog());
                                       if (pickedFile != null) {
-                                        Provider.of<HomeProvider>(context,
+                                        Provider.of<AddOfferProvider>(context,
                                                 listen: false)
                                             .updateImage(
                                                 index: 0,
@@ -147,7 +185,8 @@ class _AddOfferState extends State<AddOffer> {
                                     child: Container(
                                       width: 40.w,
                                       height: 40.h,
-                                      child: Provider.of<HomeProvider>(context,
+                                      child: Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img1 ==
                                               null
@@ -155,7 +194,8 @@ class _AddOfferState extends State<AddOffer> {
                                               'assets/images/addImg.png',
                                             )
                                           : Image.file(
-                                              Provider.of<HomeProvider>(context,
+                                              Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img1,
                                               fit: BoxFit.cover,
@@ -173,7 +213,7 @@ class _AddOfferState extends State<AddOffer> {
                                           builder: (context) =>
                                               MediaPickDialog());
                                       if (pickedFile != null) {
-                                        Provider.of<HomeProvider>(context,
+                                        Provider.of<AddOfferProvider>(context,
                                                 listen: false)
                                             .updateImage(
                                                 index: 1,
@@ -183,14 +223,16 @@ class _AddOfferState extends State<AddOffer> {
                                     child: Container(
                                       width: 40.w,
                                       height: 40.h,
-                                      child: Provider.of<HomeProvider>(context,
+                                      child: Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img2 ==
                                               null
                                           ? Image.asset(
                                               'assets/images/addImg.png')
                                           : Image.file(
-                                              Provider.of<HomeProvider>(context,
+                                              Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img2,
                                               fit: BoxFit.cover,
@@ -208,7 +250,7 @@ class _AddOfferState extends State<AddOffer> {
                                           builder: (context) =>
                                               MediaPickDialog());
                                       if (pickedFile != null) {
-                                        Provider.of<HomeProvider>(context,
+                                        Provider.of<AddOfferProvider>(context,
                                                 listen: false)
                                             .updateImage(
                                                 index: 2,
@@ -218,14 +260,16 @@ class _AddOfferState extends State<AddOffer> {
                                     child: Container(
                                       width: 40.w,
                                       height: 40.h,
-                                      child: Provider.of<HomeProvider>(context,
+                                      child: Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img3 ==
                                               null
                                           ? Image.asset(
                                               'assets/images/addImg.png')
                                           : Image.file(
-                                              Provider.of<HomeProvider>(context,
+                                              Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img3,
                                               fit: BoxFit.cover,
@@ -243,7 +287,7 @@ class _AddOfferState extends State<AddOffer> {
                                           builder: (context) =>
                                               MediaPickDialog());
                                       if (pickedFile != null) {
-                                        Provider.of<HomeProvider>(context,
+                                        Provider.of<AddOfferProvider>(context,
                                                 listen: false)
                                             .updateImage(
                                                 index: 3,
@@ -253,14 +297,16 @@ class _AddOfferState extends State<AddOffer> {
                                     child: Container(
                                       width: 40.w,
                                       height: 40.h,
-                                      child: Provider.of<HomeProvider>(context,
+                                      child: Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img4 ==
                                               null
                                           ? Image.asset(
                                               'assets/images/addImg.png')
                                           : Image.file(
-                                              Provider.of<HomeProvider>(context,
+                                              Provider.of<AddOfferProvider>(
+                                                      context,
                                                       listen: true)
                                                   .img4,
                                               fit: BoxFit.cover,
@@ -351,6 +397,10 @@ class _AddOfferState extends State<AddOffer> {
                                               "Duration".tr(),
                                               maxLines: 1,
                                               style: TextStyle(
+                                                  fontWeight: context.locale ==
+                                                          Locale("ar")
+                                                      ? FontWeight.bold
+                                                      : FontWeight.normal,
                                                   fontFamily: "Salsa-Regular"),
                                             ),
                                           ),
@@ -358,11 +408,10 @@ class _AddOfferState extends State<AddOffer> {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 40.w,
+                                      width: 10.w,
                                     ),
                                     Container(
-                                      width: 120.w,
-                                      height: 30.h,
+                                      width: 140.w,
                                       padding: EdgeInsetsResponsive.all(8.0),
                                       child: TextFormField(
                                         expands: false,
@@ -371,29 +420,15 @@ class _AddOfferState extends State<AddOffer> {
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         decoration: InputDecoration(
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                              ),
-                                            ),
-                                            border: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 0),
-                                            ),
                                             hintText: "Duration".tr(),
                                             hintStyle: TextStyle(
                                                 color: Colors.grey[400],
                                                 fontFamily: "Salsa-Regular")),
-                                        validator: Validator.validateEmptiness2,
+                                        validator: Validator.validateEmptiness,
                                         style: TextStyle(
-                                            fontSize: 12,
+                                            fontSize: ScreenUtil().setSp(12),
                                             fontFamily: "Salsa-Regular"),
                                       ),
-                                    ),
-                                    Icon(
-                                      Icons.keyboard_arrow_down,
-                                      color: Colors.blue,
                                     ),
                                   ],
                                 ),
@@ -422,18 +457,21 @@ class _AddOfferState extends State<AddOffer> {
                                               "Budget".tr(),
                                               maxLines: 1,
                                               style: TextStyle(
-                                                  fontFamily: "Salsa-Regular"),
+                                                  fontFamily: "Salsa-Regular",
+                                                  fontWeight: context.locale ==
+                                                          Locale("ar")
+                                                      ? FontWeight.bold
+                                                      : FontWeight.normal),
                                             ),
                                           ),
                                         ],
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 40.w,
+                                      width: 10.w,
                                     ),
                                     Container(
-                                      width: 120.w,
-                                      height: 30.h,
+                                      width: 140.w,
                                       padding: EdgeInsetsResponsive.all(8.0),
                                       child: TextFormField(
                                         expands: false,
@@ -442,29 +480,15 @@ class _AddOfferState extends State<AddOffer> {
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         decoration: InputDecoration(
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                              ),
-                                            ),
-                                            border: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 5),
-                                            ),
                                             hintText: "Budget".tr(),
                                             hintStyle: TextStyle(
                                                 color: Colors.grey[400],
                                                 fontFamily: "Salsa-Regular")),
                                         style: TextStyle(
-                                            fontSize: 12,
+                                            fontSize: ScreenUtil().setSp(12),
                                             fontFamily: "Salsa-Regular"),
-                                        validator: Validator.validateEmptiness2,
+                                        validator: Validator.validateEmptiness,
                                       ),
-                                    ),
-                                    Icon(
-                                      Icons.keyboard_arrow_down,
-                                      color: Colors.blue,
                                     ),
                                   ],
                                 ),
@@ -493,48 +517,61 @@ class _AddOfferState extends State<AddOffer> {
                                             "Location".tr(),
                                             maxLines: 1,
                                             style: TextStyle(
-                                                fontFamily: "Salsa-Regular"),
+                                                fontFamily: "Salsa-Regular",
+                                                fontWeight: context.locale ==
+                                                        Locale("ar")
+                                                    ? FontWeight.bold
+                                                    : FontWeight.normal),
                                           )),
                                         ],
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 40.w,
+                                      width: 10.w,
                                     ),
                                     Container(
-                                      width: 120.w,
-                                      height: 30.h,
+                                      width: 140.w,
                                       padding: EdgeInsetsResponsive.all(8.0),
-                                      child: TextFormField(
-                                        expands: false,
-                                        textAlign: TextAlign.start,
-                                        controller: provider.locationController,
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                        decoration: InputDecoration(
-                                            enabledBorder: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                              ),
-                                            ),
-                                            border: UnderlineInputBorder(
-                                              borderSide: BorderSide(
-                                                  color: Colors.transparent,
-                                                  width: 5),
-                                            ),
-                                            hintText: "Location".tr(),
-                                            hintStyle: TextStyle(
-                                                color: Colors.grey[400],
-                                                fontFamily: "Salsa-Regular")),
-                                        style: TextStyle(
-                                            fontSize: 12,
-                                            fontFamily: "Salsa-Regular"),
-                                        validator: Validator.validateEmptiness2,
+                                      child: DropdownButtonFormField(
+                                        icon: Icon(
+                                          Icons.keyboard_arrow_down,
+                                          color: Colors.blue,
+                                        ),
+                                        validator: Validator.validateDropDown,
+                                        hint: Container(
+                                          padding: EdgeInsetsResponsive.only(
+                                              bottom: 8.0),
+                                          child: Text(
+                                              provider?.selectedCity?.tr() ??
+                                                  "select city".tr(),
+                                              style: TextStyle(
+                                                  fontSize:
+                                                      ScreenUtil().setSp(12),
+                                                  fontFamily: "Salsa-Regular")),
+                                        ),
+                                        items: [
+                                          "Abu Dhabi",
+                                          "Ras Al Khaimah",
+                                          "Dubai",
+                                          "Sharjah",
+                                          "Ajman",
+                                          "Umm Al-Quwain",
+                                          "Fujairah",
+                                        ].map((String city) {
+                                          return new DropdownMenuItem<String>(
+                                            value: city,
+                                            child: new Text(city.tr(),
+                                                style: TextStyle(
+                                                    fontSize:
+                                                        ScreenUtil().setSp(12),
+                                                    fontFamily:
+                                                        "Salsa-Regular")),
+                                          );
+                                        }).toList(),
+                                        onChanged: (city) {
+                                          providerFunc.changeCity(city);
+                                        },
                                       ),
-                                    ),
-                                    Icon(
-                                      Icons.keyboard_arrow_down,
-                                      color: Colors.blue,
                                     ),
                                   ],
                                 ),
@@ -542,12 +579,12 @@ class _AddOfferState extends State<AddOffer> {
                             ),
                             GestureDetector(
                               onTap: () {
-                                if (Provider.of<HomeProvider>(context,
+                                if (Provider.of<AddOfferProvider>(context,
                                         listen: false)
                                     .homeFormKey
                                     .currentState
                                     .validate()) {
-                                  Provider.of<HomeProvider>(context,
+                                  Provider.of<AddOfferProvider>(context,
                                           listen: false)
                                       .send(context);
                                 }
@@ -569,7 +606,11 @@ class _AddOfferState extends State<AddOffer> {
                                   children: [
                                     Text("Send".tr(),
                                         style: TextStyle(
-                                            fontFamily: "Salsa-Regular")),
+                                            fontFamily: "Salsa-Regular",
+                                            fontWeight:
+                                                context.locale == Locale("ar")
+                                                    ? FontWeight.bold
+                                                    : FontWeight.normal)),
                                     Transform.rotate(
                                       angle: 5,
                                       child: Image.asset(

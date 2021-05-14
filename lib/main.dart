@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:yeeo/views/pages/intro/splash.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
 
-import 'core/providers/homeProvider.dart';
+import 'core/providers/addOfferProvider.dart';
 import 'core/providers/loginProvider.dart';
 import 'core/providers/mediaPickerProvider.dart';
 import 'core/providers/pagerProvider.dart';
@@ -15,7 +15,7 @@ import 'core/providers/splashProvider.dart';
 void main() => runApp(Phoenix(
       child: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (_) => HomeProvider()),
+          ChangeNotifierProvider(create: (_) => AddOfferProvider()),
           ChangeNotifierProvider(create: (_) => SignUpProvider()),
           ChangeNotifierProvider(create: (_) => LoginProvider()),
           ChangeNotifierProvider(create: (_) => MediaPickerProvider()),

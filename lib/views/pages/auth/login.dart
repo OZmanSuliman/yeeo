@@ -1,14 +1,12 @@
-import 'dart:convert';
-
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yeeo/core/providers/loginProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/widgets/userType.dart';
-import 'package:easy_localization/easy_localization.dart';
+
 import 'signup.dart';
 
 class LoginPage extends StatefulWidget {
@@ -20,16 +18,6 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    addTestAccount();
-  }
-
-  addTestAccount() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<String, dynamic> testAccount = {
-      "password": '123456',
-      "email": 'test@gmail.com',
-    };
-    prefs.setString("user", json.encode(testAccount));
   }
 
   @override
@@ -111,7 +99,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               children: [
                                 Container(
                                   width: 250.w,
-                                  height: 70.h,
+                                  height: 40.h,
                                   padding: EdgeInsetsResponsive.all(8.0),
                                   child: TextFormField(
                                     controller: provider.emailController,
@@ -128,7 +116,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                 ),
                                 Container(
                                   width: 250.w,
-                                  height: 70.h,
+                                  height: 40.h,
                                   padding: EdgeInsetsResponsive.all(8.0),
                                   child: TextFormField(
                                       controller: provider.passwordController,

@@ -19,15 +19,26 @@ class SplashProvider extends ChangeNotifier {
       } else {
         Navigator.push(context,
             PageTransition(type: PageTransitionType.fade, child: LoginPage()));
+        addTestAccount();
       }
     } catch (e) {
       Navigator.push(context,
           PageTransition(type: PageTransitionType.fade, child: LoginPage()));
+      addTestAccount();
     }
   }
 
   loadImages(context) async {
     await precacheImage(
         AssetImage('assets/images/addOfferBanner.png'), context);
+  }
+
+  addTestAccount() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    Map<String, dynamic> testAccount = {
+      "password": '123456',
+      "email": 'test@gmail.com',
+    };
+    prefs.setString("user", json.encode(testAccount));
   }
 }

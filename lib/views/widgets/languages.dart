@@ -29,7 +29,13 @@ class LanguageWidget extends StatelessWidget {
           hint: Container(
             padding: EdgeInsetsResponsive.fromLTRB(15, 10, 15, 10),
             color: appTheme().primaryColor,
-            child: Text("Language".tr()),
+            child: Text(
+              "Language".tr(),
+              style: TextStyle(
+                  fontWeight: context.locale == Locale("ar")
+                      ? FontWeight.bold
+                      : FontWeight.normal),
+            ),
           ),
           items: getLanguages.map((Language lang) {
             return new DropdownMenuItem<String>(

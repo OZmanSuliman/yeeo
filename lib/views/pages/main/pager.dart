@@ -34,11 +34,11 @@ class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     ResponsiveWidgets.init(context,
-        height: 1560, width: 720, allowFontScaling: true);
+        height: 725.0, width: 360.0, allowFontScaling: true);
 
     return ResponsiveWidgets.builder(
-      height: 1560,
-      width: 720,
+      height: 725.0,
+      width: 360.0,
       allowFontScaling: true,
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -48,12 +48,15 @@ class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
               Provider.of<PagerProvider>(context, listen: false).tabController,
           children: pages,
         ),
-        bottomNavigationBar: AnimatedBottomNav(
-            currentIndex: Provider.of<PagerProvider>(context, listen: true)
-                .bottomSelectedIndex,
-            onChange: (index) {
-              Provider.of<PagerProvider>(context, listen: false).onTap(index);
-            }),
+        bottomNavigationBar: SizedBox(
+          height: 76.h,
+          child: AnimatedBottomNav(
+              currentIndex: Provider.of<PagerProvider>(context, listen: true)
+                  .bottomSelectedIndex,
+              onChange: (index) {
+                Provider.of<PagerProvider>(context, listen: false).onTap(index);
+              }),
+        ),
       ),
     );
   }
@@ -70,28 +73,37 @@ class AnimatedBottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: kToolbarHeight,
-      decoration: BoxDecoration(color: Colors.white),
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: InkWell(
-              onTap: () => onChange(0),
-              child: BottomNavItem(
-                icon: 'addOffer',
-                title: 'mainMenu'.tr(),
-                isActive: currentIndex == 0,
+      decoration: BoxDecoration(
+        color: Colors.white,
+      ),
+      child: Stack(
+        children: [
+          Align(
+              alignment: Alignment.bottomCenter,
+              child: Image.asset('assets/images/bottomNavBackground.png')),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              InkWell(
+                onTap: () => onChange(0),
+                child: BottomNavItem(
+                  icon: 'addOffer',
+                  title: 'mainMenu'.tr(),
+                  isActive: currentIndex == 0,
+                ),
               ),
-            ),
-          ),
-          Expanded(
-            child: InkWell(
-              onTap: () => onChange(1),
-              child: BottomNavItem(
-                icon: 'basket',
-                title: "myProducts".tr(),
-                isActive: currentIndex == 1,
+              SizedBox(
+                width: 60.w,
               ),
-            ),
+              InkWell(
+                onTap: () => onChange(1),
+                child: BottomNavItem(
+                  icon: 'basket',
+                  title: "myProducts".tr(),
+                  isActive: currentIndex == 1,
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -131,15 +143,15 @@ class BottomNavItem extends StatelessWidget {
       reverseDuration: Duration(milliseconds: 200),
       child: isActive
           ? Container(
-              color: Colors.white,
+              color: Colors.transparent,
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Image.asset(
                     'assets/images/$icon.png',
-                    width: 60.w,
-                    height: 60.h,
+                    width: 50.w,
+                    height: 50.h,
                   ),
                   const SizedBox(height: 5.0),
                   Container(
@@ -155,8 +167,8 @@ class BottomNavItem extends StatelessWidget {
             )
           : Image.asset(
               'assets/images/$icon.png',
-              width: 60.w,
-              height: 60.h,
+              width: 50.w,
+              height: 50.h,
             ),
     );
   }
