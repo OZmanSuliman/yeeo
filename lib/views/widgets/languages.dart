@@ -58,6 +58,7 @@ class LanguageWidget extends StatelessWidget {
           }).toList(),
           onChanged: (val) {
             print(val);
+            // ignore: deprecated_member_use
             context.locale = Locale(val);
             Phoenix.rebirth(context);
           },

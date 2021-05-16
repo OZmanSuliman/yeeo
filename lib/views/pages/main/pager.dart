@@ -11,7 +11,6 @@
  * Copyright (c) 2021 Osman Suliman
  * oz.solomon99@gmail.com
  */
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -101,7 +100,7 @@ class AnimatedBottomNav extends StatelessWidget {
                 onTap: () => onChange(0),
                 child: BottomNavItem(
                   icon: 'addOffer',
-                  title: 'mainMenu'.tr(),
+                  title: 'addOffer',
                   isActive: currentIndex == 0,
                 ),
               ),
@@ -112,7 +111,7 @@ class AnimatedBottomNav extends StatelessWidget {
                 onTap: () => onChange(1),
                 child: BottomNavItem(
                   icon: 'basket',
-                  title: "myProducts".tr(),
+                  title: "basket",
                   isActive: currentIndex == 1,
                 ),
               ),

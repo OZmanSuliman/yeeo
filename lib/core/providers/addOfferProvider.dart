@@ -37,6 +37,19 @@ class AddOfferProvider extends ChangeNotifier {
         PageTransition(type: PageTransitionType.fade, child: LoginPage()));
   }
 
+  int currentSliderIndex = 0;
+  List categories = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+  ];
+  changeSlider(i) {
+    currentSliderIndex = i;
+    notifyListeners();
+  }
+
   updateImage({selectedImage, index}) {
     switch (index) {
       case 0:

@@ -11,6 +11,7 @@
  * Copyright (c) 2021 Osman Suliman
  * oz.solomon99@gmail.com
  */
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
@@ -40,7 +41,7 @@ class _AddOfferState extends State<AddOffer> {
     AddOfferProvider provider =
         Provider.of<AddOfferProvider>(context, listen: true);
     AddOfferProvider providerFunc =
-        Provider.of<AddOfferProvider>(context, listen: true);
+        Provider.of<AddOfferProvider>(context, listen: false);
     var width = MediaQuery.of(context).size.width;
     ResponsiveWidgets.init(
       context,
@@ -113,7 +114,7 @@ class _AddOfferState extends State<AddOffer> {
                         ],
                       ),
                       Container(
-                        width: width - 50.w,
+                        width: 5 * width / 6,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -330,58 +331,75 @@ class _AddOfferState extends State<AddOffer> {
                                 ],
                               ),
                             ),
-                            Container(
-                              height: 120.h,
-                              width: width - 150,
-                              child: Scrollbar(
-                                child: GridView(
-                                  scrollDirection: Axis.horizontal,
-                                  padding:
-                                      EdgeInsetsResponsive.only(left: 20.w),
-                                  gridDelegate:
-                                      SliverGridDelegateWithFixedCrossAxisCount(
-                                          childAspectRatio: 42 / 50,
-                                          crossAxisCount: 2),
-                                  children: <Widget>[
-                                    Container(
-                                      margin: EdgeInsetsResponsive.all(10),
-                                      width: 40.w,
-                                      height: 40.h,
-                                      color: Colors.grey[300],
+                            CarouselSlider(
+                              options: CarouselOptions(
+                                  height: 120.h,
+                                  autoPlay: false,
+                                  enlargeCenterPage: false,
+                                  viewportFraction: 0.33,
+                                  // aspectRatio: 2,
+                                  initialPage: 0,
+                                  onPageChanged: (index, reason) =>
+                                      providerFunc.changeSlider(index)),
+                              items: provider.categories.map((i) {
+                                // ignore: unused_local_variable
+                                int index = provider.categories.indexOf(i);
+                                return Builder(
+                                  builder: (BuildContext context) {
+                                    return Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: Container(
+                                            margin:
+                                                EdgeInsetsResponsive.all(10),
+                                            width: 40.w,
+                                            height: 40.h,
+                                            color: Colors.grey[300],
+                                          ),
+                                        ),
+                                        SizedBox(
+                                          height: 10,
+                                        ),
+                                        Expanded(
+                                          child: Container(
+                                            margin:
+                                                EdgeInsetsResponsive.all(10),
+                                            width: 40.w,
+                                            height: 40.h,
+                                            color: Colors.grey[300],
+                                          ),
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                );
+                              }).toList(),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: provider.categories.map((i) {
+                                int index = provider.categories.indexOf(i);
+                                return Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ClipRRect(
+                                    borderRadius: new BorderRadius.all(
+                                      Radius.circular(360),
                                     ),
-                                    Container(
-                                      margin: EdgeInsetsResponsive.all(10),
-                                      width: 40.w,
-                                      height: 40.h,
-                                      color: Colors.grey[300],
+                                    child: Container(
+                                      width: 6.0,
+                                      height: 9.0,
+                                      decoration: BoxDecoration(
+                                        color:
+                                            provider.currentSliderIndex == index
+                                                ? appTheme().primaryColor
+                                                : appTheme().primaryColorLight,
+                                      ),
                                     ),
-                                    Container(
-                                      margin: EdgeInsetsResponsive.all(10),
-                                      width: 40.w,
-                                      height: 40.h,
-                                      color: Colors.grey[300],
-                                    ),
-                                    Container(
-                                      margin: EdgeInsetsResponsive.all(10),
-                                      width: 40.w,
-                                      height: 40.h,
-                                      color: Colors.grey[300],
-                                    ),
-                                    Container(
-                                      margin: EdgeInsetsResponsive.all(10),
-                                      width: 40.w,
-                                      height: 40.h,
-                                      color: Colors.grey[300],
-                                    ),
-                                    Container(
-                                      margin: EdgeInsetsResponsive.all(10),
-                                      width: 40.w,
-                                      height: 40.h,
-                                      color: Colors.grey[300],
-                                    ),
-                                  ],
-                                ),
-                              ),
+                                  ),
+                                );
+                              }).toList(),
                             ),
                             Column(
                               children: [
