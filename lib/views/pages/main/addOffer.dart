@@ -114,7 +114,7 @@ class _AddOfferState extends State<AddOffer> {
                         ],
                       ),
                       Container(
-                        width: 5 * width / 6,
+                        width: 4.5 * width / 6,
                         decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -656,7 +656,10 @@ class _AddOfferState extends State<AddOffer> {
                             )
                           ],
                         ),
-                      )
+                      ),
+                      SizedBox(
+                        height: 40.h,
+                      ),
                     ],
                   ),
                 ),

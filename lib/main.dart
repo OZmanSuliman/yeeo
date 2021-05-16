@@ -26,27 +26,23 @@ import 'core/providers/pagerProvider.dart';
 import 'core/providers/signupProvider.dart';
 import 'core/providers/splashProvider.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await EasyLocalization.ensureInitialized();
-  runApp(Phoenix(
-    child: MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => AddOfferProvider()),
-        ChangeNotifierProvider(create: (_) => SignUpProvider()),
-        ChangeNotifierProvider(create: (_) => LoginProvider()),
-        ChangeNotifierProvider(create: (_) => MediaPickerProvider()),
-        ChangeNotifierProvider(create: (_) => SplashProvider()),
-        ChangeNotifierProvider(create: (_) => PagerProvider()),
-      ],
-      child: EasyLocalization(
-          supportedLocales: [Locale('ar'), Locale('en')],
-          path: 'translations',
-          fallbackLocale: Locale('ar'),
-          child: MyApp()),
-    ),
-  ));
-}
+void main() => runApp(Phoenix(
+      child: MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => AddOfferProvider()),
+          ChangeNotifierProvider(create: (_) => SignUpProvider()),
+          ChangeNotifierProvider(create: (_) => LoginProvider()),
+          ChangeNotifierProvider(create: (_) => MediaPickerProvider()),
+          ChangeNotifierProvider(create: (_) => SplashProvider()),
+          ChangeNotifierProvider(create: (_) => PagerProvider()),
+        ],
+        child: EasyLocalization(
+            supportedLocales: [Locale('ar'), Locale('en')],
+            path: 'translations',
+            fallbackLocale: Locale('en'),
+            child: MyApp()),
+      ),
+    ));
 
 class MyApp extends StatelessWidget {
   @override
