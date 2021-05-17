@@ -22,22 +22,21 @@ import 'package:yeeo/views/pages/main/pager.dart';
 class SplashProvider extends ChangeNotifier {
   checkLoginStatus(context) async {
     try {
+      addTestAccount();
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await loadImages(context);
-      dynamic myUser = prefs.getString("user");
-      myUser = json.decode(myUser);
-      if (myUser != null) {
+      bool isLogged = prefs.getBool("logged") ?? false;
+
+      if (isLogged) {
         Navigator.push(context,
             PageTransition(type: PageTransitionType.fade, child: Pager()));
       } else {
         Navigator.push(context,
             PageTransition(type: PageTransitionType.fade, child: LoginPage()));
-        addTestAccount();
       }
     } catch (e) {
       Navigator.push(context,
           PageTransition(type: PageTransitionType.fade, child: LoginPage()));
-      addTestAccount();
     }
   }
 

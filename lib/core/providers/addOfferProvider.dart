@@ -37,6 +37,11 @@ class AddOfferProvider extends ChangeNotifier {
         PageTransition(type: PageTransitionType.fade, child: LoginPage()));
   }
 
+  userLogged() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('logged', true);
+  }
+
   int currentSliderIndex = 0;
   List categories = [
     "1",

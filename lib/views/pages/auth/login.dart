@@ -101,7 +101,11 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               child: Container(
                                   padding: EdgeInsetsResponsive.all(8),
                                   color: Colors.grey[400],
-                                  child: Text("Login !".tr())),
+                                  child: Text(
+                                    "Login !".tr(),
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )),
                             ),
                           ],
                         ),

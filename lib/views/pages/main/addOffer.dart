@@ -34,6 +34,7 @@ class _AddOfferState extends State<AddOffer> {
   @override
   void initState() {
     super.initState();
+    Provider.of<AddOfferProvider>(context, listen: false).userLogged();
   }
 
   @override

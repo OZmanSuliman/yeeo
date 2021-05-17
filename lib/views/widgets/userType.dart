@@ -47,6 +47,7 @@ class UserTypeWidget extends StatelessWidget {
                   Text(
                     "User".tr(),
                     style: TextStyle(
+                        fontWeight: FontWeight.bold,
                         decoration: provider.userType == 1
                             ? TextDecoration.underline
                             : TextDecoration.none,
@@ -58,11 +59,11 @@ class UserTypeWidget extends StatelessWidget {
                   Padding(
                     padding: EdgeInsetsResponsive.only(bottom: 8.0),
                     child: Transform.rotate(
-                      angle: 3,
+                      angle: provider.userType != 1 ? 180 : 0,
                       child: Image.asset(
                         provider.userType == 1
-                            ? "assets/images/logo.png"
-                            : "assets/images/logo_white.png",
+                            ? "assets/images/logo2.png"
+                            : "assets/images/logo_white2.png",
                         width: 20,
                         height: 30,
                       ),
@@ -75,12 +76,15 @@ class UserTypeWidget extends StatelessWidget {
                   .switchType(2),
               child: Row(
                 children: [
-                  Image.asset(
-                    provider.userType == 2
-                        ? "assets/images/logo.png"
-                        : "assets/images/logo_white.png",
-                    width: 20,
-                    height: 30,
+                  Transform.rotate(
+                    angle: provider.userType != 1 ? 2.5 : 0,
+                    child: Image.asset(
+                      provider.userType == 2
+                          ? "assets/images/logo2.png"
+                          : "assets/images/logo_white2.png",
+                      width: 20,
+                      height: 30,
+                    ),
                   ),
                   SizedBox(
                     width: 10,
@@ -88,11 +92,11 @@ class UserTypeWidget extends StatelessWidget {
                   Text(
                     "Service Provider".tr(),
                     style: TextStyle(
-                      decoration: provider.userType == 2
-                          ? TextDecoration.underline
-                          : TextDecoration.none,
-                      color: Colors.black,
-                    ),
+                        decoration: provider.userType == 2
+                            ? TextDecoration.underline
+                            : TextDecoration.none,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold),
                   ),
                 ],
               )),
