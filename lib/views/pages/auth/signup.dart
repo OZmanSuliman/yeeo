@@ -115,12 +115,15 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                             controller:
                                                 provider.userNameController,
                                             decoration: InputDecoration(
+                                                errorStyle:
+                                                    TextStyle(height: 0),
                                                 border: new OutlineInputBorder(
                                                     borderSide: new BorderSide(
                                                         color: Colors.black)),
-                                                labelText: "username".tr(),
-                                                labelStyle: TextStyle(
-                                                    color: Colors.grey[400])),
+                                                hintText: "username".tr(),
+                                                hintStyle: TextStyle(
+                                                    color: Colors.grey[400],
+                                                    height: 0)),
                                             validator: Validator.validateName,
                                           ),
                                         ),
@@ -134,15 +137,18 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                                   provider.passwordController,
                                               obscureText: true,
                                               decoration: InputDecoration(
+                                                  errorStyle:
+                                                      TextStyle(height: 0),
                                                   border:
                                                       new OutlineInputBorder(
                                                           borderSide:
                                                               new BorderSide(
                                                                   color: Colors
                                                                       .black)),
-                                                  labelText: "Password".tr(),
-                                                  labelStyle: TextStyle(
-                                                      color: Colors.grey[400])),
+                                                  hintText: "Password".tr(),
+                                                  hintStyle: TextStyle(
+                                                      color: Colors.grey[400],
+                                                      height: 0)),
                                               validator: Validator
                                                   .validatePasswordLength),
                                         ),
@@ -158,13 +164,16 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                             keyboardType:
                                                 TextInputType.visiblePassword,
                                             decoration: InputDecoration(
+                                                errorStyle:
+                                                    TextStyle(height: 0),
                                                 border: new OutlineInputBorder(
                                                     borderSide: new BorderSide(
                                                         color: Colors.black)),
-                                                labelText:
+                                                hintText:
                                                     "Confirm Passowrd".tr(),
-                                                labelStyle: TextStyle(
-                                                    color: Colors.grey[400])),
+                                                hintStyle: TextStyle(
+                                                    color: Colors.grey[400],
+                                                    height: 0)),
                                             validator: Validator
                                                 .validatePasswordLength,
                                           ),
@@ -180,12 +189,15 @@ class _SignupPageState extends State<SignupPage> with TickerProviderStateMixin {
                                             keyboardType:
                                                 TextInputType.emailAddress,
                                             decoration: InputDecoration(
+                                                errorStyle:
+                                                    TextStyle(height: 0),
                                                 border: new OutlineInputBorder(
                                                     borderSide: new BorderSide(
                                                         color: Colors.black)),
-                                                labelText: "Email".tr(),
-                                                labelStyle: TextStyle(
-                                                    color: Colors.grey[400])),
+                                                hintText: "Email".tr(),
+                                                hintStyle: TextStyle(
+                                                    color: Colors.grey[400],
+                                                    height: 0)),
                                             validator: Validator.validateEmail,
                                           ),
                                         ),

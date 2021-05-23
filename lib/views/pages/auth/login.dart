@@ -109,6 +109,9 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                             ),
                           ],
                         ),
+                        SizedBox(
+                          height: 10.h,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -122,12 +125,16 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                     controller: provider.emailController,
                                     keyboardType: TextInputType.emailAddress,
                                     decoration: InputDecoration(
+                                        contentPadding: EdgeInsets.symmetric(
+                                            vertical: 10.0, horizontal: 10.0),
                                         border: new OutlineInputBorder(
                                             borderSide: new BorderSide(
                                                 color: Colors.black)),
-                                        labelText: "Email".tr(),
-                                        labelStyle:
-                                            TextStyle(color: Colors.grey[400])),
+                                        hintText: "Email".tr(),
+                                        errorStyle: TextStyle(height: 0),
+                                        hintStyle: TextStyle(
+                                            color: Colors.grey[400],
+                                            height: 1)),
                                     validator: Validator.validateEmail,
                                   ),
                                 ),
@@ -139,12 +146,14 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                       controller: provider.passwordController,
                                       obscureText: true,
                                       decoration: InputDecoration(
+                                          errorStyle: TextStyle(height: 0),
                                           border: new OutlineInputBorder(
                                               borderSide: new BorderSide(
                                                   color: Colors.black)),
-                                          labelText: "Password".tr(),
-                                          labelStyle: TextStyle(
-                                              color: Colors.grey[400])),
+                                          hintText: "Password".tr(),
+                                          hintStyle: TextStyle(
+                                              color: Colors.grey[400],
+                                              height: 0)),
                                       validator:
                                           Validator.validatePasswordLength),
                                 ),

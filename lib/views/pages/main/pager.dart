@@ -166,27 +166,27 @@ class BottomNavItem extends StatelessWidget {
           child: child,
         );
       },
-      duration: Duration(milliseconds: 500),
-      reverseDuration: Duration(milliseconds: 200),
-      child: isActive
+      duration: Duration(milliseconds: 50),
+      reverseDuration: Duration(milliseconds: 20),
+      child: icon == "basket"
           ? Container(
               color: Colors.transparent,
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Image.asset(
-                    'assets/images/$icon.png',
-                    width: 42.w,
-                    height: 40.h,
+                  SvgPicture.asset(
+                    'assets/images/$icon.svg',
+                    width: 29.w,
+                    height: 32.h,
                   ),
                 ],
               ),
             )
           : Image.asset(
               'assets/images/$icon.png',
-              width: 42.w,
-              height: 40.h,
+              width: 36.w,
+              height: 32.h,
             ),
     );
   }

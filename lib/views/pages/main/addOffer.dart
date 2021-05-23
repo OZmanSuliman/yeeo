@@ -261,7 +261,7 @@ class _AddOfferState extends State<AddOffer> {
                                                   .img2,
                                               fit: BoxFit.cover,
                                             ),
-                                      color: Colors.grey[350],
+                                      color: Color(0xffC4C4C4),
                                     ),
                                   ),
                                   SizedBox(
@@ -302,7 +302,7 @@ class _AddOfferState extends State<AddOffer> {
                                                   .img3,
                                               fit: BoxFit.cover,
                                             ),
-                                      color: Colors.grey[350],
+                                      color: Color(0xffC4C4C4),
                                     ),
                                   ),
                                   SizedBox(
@@ -343,7 +343,7 @@ class _AddOfferState extends State<AddOffer> {
                                                   .img4,
                                               fit: BoxFit.cover,
                                             ),
-                                      color: Colors.grey[350],
+                                      color: Color(0xffC4C4C4),
                                     ),
                                   ),
                                 ],
@@ -388,7 +388,7 @@ class _AddOfferState extends State<AddOffer> {
                                           Container(
                                             width: 54.w,
                                             height: 46.h,
-                                            color: Colors.grey[350],
+                                            color: Color(0xffC4C4C4),
                                           ),
                                           SizedBox(
                                             height: 6.h,
@@ -396,7 +396,7 @@ class _AddOfferState extends State<AddOffer> {
                                           Container(
                                             width: 54.w,
                                             height: 46.h,
-                                            color: Colors.grey[350],
+                                            color: Color(0xffC4C4C4),
                                           ),
                                         ],
                                       );
@@ -481,7 +481,7 @@ class _AddOfferState extends State<AddOffer> {
                                         decoration: InputDecoration(
                                             hintText: "Duration".tr(),
                                             hintStyle: TextStyle(
-                                                color: Colors.grey[350],
+                                                color: Color(0xffC4C4C4),
                                                 fontFamily: "Salsa-Regular")),
                                         validator: Validator.validateEmptiness,
                                         style: TextStyle(
@@ -541,7 +541,7 @@ class _AddOfferState extends State<AddOffer> {
                                         decoration: InputDecoration(
                                             hintText: "Budget".tr(),
                                             hintStyle: TextStyle(
-                                                color: Colors.grey[350],
+                                                color: Color(0xffC4C4C4),
                                                 fontFamily: "Salsa-Regular")),
                                         style: TextStyle(
                                             fontSize: ScreenUtil().setSp(12),
