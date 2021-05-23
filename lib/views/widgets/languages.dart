@@ -41,11 +41,17 @@ class LanguageWidget extends StatelessWidget {
           underline: SizedBox(),
           hint: Container(
             width: 100.w,
+            height: 30.h,
             alignment: Alignment.center,
             color: appTheme().primaryColor,
             child: Text(
               "Language".tr(),
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: TextStyle(
+                color: Colors.black,
+                fontWeight: context.locale == Locale("ar")
+                    ? FontWeight.bold
+                    : FontWeight.normal,
+              ),
             ),
           ),
           items: getLanguages.map((Language lang) {

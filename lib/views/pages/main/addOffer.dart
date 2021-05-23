@@ -85,28 +85,43 @@ class _AddOfferState extends State<AddOffer> {
                       ),
                       Image.asset('assets/images/addOfferBanner.png'),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          LanguageWidget(),
-                          SizedBox(
-                            width: 50.w,
-                          )
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 50.w,
+                              ),
+                              Padding(
+                                padding: EdgeInsetsResponsive.only(top: 38.0),
+                                child: Container(
+                                  padding: EdgeInsetsResponsive.fromLTRB(
+                                      0, 0, 0, 10),
+                                  child: Text(
+                                    "job describtion".tr(),
+                                    style: TextStyle(
+                                        fontFamily: "Tharlon-Regular",
+                                        fontSize: ScreenUtil().setSp(17),
+                                        fontWeight: FontWeight.w600),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                           SizedBox(
                             width: 50.w,
                           ),
-                          Container(
-                            padding: EdgeInsetsResponsive.all(10),
-                            child: Text(
-                              "job describtion".tr(),
-                              style: TextStyle(
-                                  fontFamily: "Tharlon-Regular",
-                                  fontSize: ScreenUtil().setSp(17),
-                                  fontWeight: FontWeight.w600),
+                          Padding(
+                            padding: EdgeInsetsResponsive.only(bottom: 18.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                LanguageWidget(),
+                                SizedBox(
+                                  width: 50.w,
+                                )
+                              ],
                             ),
                           ),
                         ],
@@ -367,12 +382,12 @@ class _AddOfferState extends State<AddOffer> {
                               height: 11.h,
                             ),
                             Container(
-                              width: 186.w,
+                              width: 196.w,
                               child: CarouselSlider(
                                 options: CarouselOptions(
                                     autoPlay: false,
                                     enlargeCenterPage: false,
-                                    viewportFraction: 0.38,
+                                    viewportFraction: 0.34,
                                     initialPage: 0,
                                     onPageChanged: (index, reason) =>
                                         providerFunc.changeSlider(index)),
