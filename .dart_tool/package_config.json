@@ -152,6 +152,12 @@
       "languageVersion": "2.6"
     },
     {
+      "name": "flutter_svg",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_svg-0.22.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///Users/osmansuliman/Developer/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -220,6 +226,18 @@
     {
       "name": "path",
       "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_drawing",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_drawing-0.5.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "path_parsing",
+      "rootUri": "file:///Users/osmansuliman/Developer/flutter/.pub-cache/hosted/pub.dartlang.org/path_parsing-0.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -404,7 +422,7 @@
       "languageVersion": "2.7"
     }
   ],
-  "generated": "2021-05-16T11:26:15.900152Z",
+  "generated": "2021-05-23T07:01:09.177709Z",
   "generator": "pub",
   "generatorVersion": "2.12.3"
 }

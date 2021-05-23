@@ -55,6 +55,18 @@ class AddOfferProvider extends ChangeNotifier {
     notifyListeners();
   }
 
+  addImage({selectedImage}) {
+    if (img2 == null) {
+      img2 = selectedImage;
+    } else if (img3 == null) {
+      img3 = selectedImage;
+    } else if (img4 == null) {
+      img4 = selectedImage;
+    }
+
+    notifyListeners();
+  }
+
   updateImage({selectedImage, index}) {
     switch (index) {
       case 0:

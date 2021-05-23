@@ -219,7 +219,7 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                           height: 30.h,
                         ),
                         Text(
-                          "   copyrights 2021    yee.LLC  ".tr(),
+                          "   copyrights 2021    yeeo.LLC  ".tr(),
                           style: TextStyle(fontWeight: FontWeight.bold),
                         )
                       ],

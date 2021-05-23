@@ -40,14 +40,12 @@ class LanguageWidget extends StatelessWidget {
           icon: Container(),
           underline: SizedBox(),
           hint: Container(
-            padding: EdgeInsetsResponsive.fromLTRB(15, 10, 15, 10),
+            width: 100.w,
+            alignment: Alignment.center,
             color: appTheme().primaryColor,
             child: Text(
               "Language".tr(),
-              style: TextStyle(
-                  fontWeight: context.locale == Locale("ar")
-                      ? FontWeight.bold
-                      : FontWeight.normal),
+              style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
           items: getLanguages.map((Language lang) {

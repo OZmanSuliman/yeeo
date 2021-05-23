@@ -16,6 +16,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/addOfferProvider.dart';
@@ -46,13 +47,13 @@ class _AddOfferState extends State<AddOffer> {
     var width = MediaQuery.of(context).size.width;
     ResponsiveWidgets.init(
       context,
-      height: 725.0,
-      width: 360.0,
+      height: 896.0,
+      width: 414.0,
       allowFontScaling: true,
     );
     return ResponsiveWidgets.builder(
-      height: 725.0,
-      width: 360.0,
+      height: 896.0,
+      width: 414.0,
       allowFontScaling: true,
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark,
@@ -69,17 +70,15 @@ class _AddOfferState extends State<AddOffer> {
                       SizedBox(
                         height: 8.h,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          SizedBox(
-                            width: 10.w,
-                          ),
-                          Text("Yeeo",
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: Padding(
+                          padding: EdgeInsetsResponsive.only(left: 17.0),
+                          child: Text("Yeeo",
                               style: TextStyle(
                                   fontFamily: "Salsa-Regular",
                                   fontSize: ScreenUtil().setSp(30))),
-                        ],
+                        ),
                       ),
                       SizedBox(
                         height: 5.h,
@@ -107,9 +106,7 @@ class _AddOfferState extends State<AddOffer> {
                               style: TextStyle(
                                   fontFamily: "Tharlon-Regular",
                                   fontSize: ScreenUtil().setSp(17),
-                                  fontWeight: context.locale == Locale("ar")
-                                      ? FontWeight.bold
-                                      : FontWeight.normal),
+                                  fontWeight: FontWeight.w600),
                             ),
                           ),
                         ],
@@ -133,7 +130,8 @@ class _AddOfferState extends State<AddOffer> {
                         child: Column(
                           children: [
                             Container(
-                              margin: EdgeInsetsResponsive.all(20),
+                              margin:
+                                  EdgeInsetsResponsive.fromLTRB(33, 44, 37, 32),
                               padding: EdgeInsetsResponsive.only(
                                   right: context.locale == Locale("ar") ? 6 : 0,
                                   left: context.locale != Locale("ar") ? 6 : 0,
@@ -150,14 +148,15 @@ class _AddOfferState extends State<AddOffer> {
                                   ],
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20))),
-                              height: 120.h,
+                              height: 205.h,
                               child: TextFormField(
                                 textAlign: TextAlign.start,
                                 keyboardType: TextInputType.multiline,
                                 controller: provider.noteController,
                                 minLines: 5,
                                 decoration: InputDecoration(
-                                    contentPadding: EdgeInsets.all(0),
+                                    contentPadding:
+                                        EdgeInsets.fromLTRB(0, 5, 0, 5),
                                     hintText: "description".tr(),
                                     enabledBorder: UnderlineInputBorder(
                                       borderSide:
@@ -171,10 +170,24 @@ class _AddOfferState extends State<AddOffer> {
                                 maxLines: null,
                               ),
                             ),
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 48.w,
+                                ),
+                                Text(
+                                  "Add image",
+                                  style: TextStyle(
+                                      fontFamily: "Salsa-Regular",
+                                      fontSize: ScreenUtil().setSp(12),
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
                             Container(
                               margin:
-                                  EdgeInsetsResponsive.fromLTRB(30, 0, 30, 10),
-                              height: 50.h,
+                                  EdgeInsetsResponsive.fromLTRB(38, 2, 45, 17),
+                              height: 44.h,
                               decoration: BoxDecoration(
                                   border: Border.all(
                                       color: appTheme().primaryColor, width: 2),
@@ -185,36 +198,28 @@ class _AddOfferState extends State<AddOffer> {
                                 children: [
                                   GestureDetector(
                                     onTap: () async {
-                                      var pickedFile = await showDialog(
-                                          context: context,
-                                          builder: (context) =>
-                                              MediaPickDialog());
-                                      if (pickedFile != null) {
-                                        Provider.of<AddOfferProvider>(context,
-                                                listen: false)
-                                            .updateImage(
-                                                index: 0,
-                                                selectedImage: pickedFile);
+                                      if (Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .img4 ==
+                                          null) {
+                                        var pickedFile = await showDialog(
+                                            context: context,
+                                            builder: (context) =>
+                                                MediaPickDialog());
+                                        if (pickedFile != null) {
+                                          Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .addImage(
+                                                  selectedImage: pickedFile);
+                                        }
                                       }
                                     },
                                     child: Container(
-                                      width: 40.w,
-                                      height: 40.h,
-                                      child: Provider.of<AddOfferProvider>(
-                                                      context,
-                                                      listen: true)
-                                                  .img1 ==
-                                              null
-                                          ? Image.asset(
-                                              'assets/images/addImg.png',
-                                            )
-                                          : Image.file(
-                                              Provider.of<AddOfferProvider>(
-                                                      context,
-                                                      listen: true)
-                                                  .img1,
-                                              fit: BoxFit.cover,
-                                            ),
+                                      width: 39.w,
+                                      height: 39.h,
+                                      child: Image.asset(
+                                        'assets/images/addImg.png',
+                                      ),
                                       color: Colors.transparent,
                                     ),
                                   ),
@@ -223,28 +228,32 @@ class _AddOfferState extends State<AddOffer> {
                                   ),
                                   GestureDetector(
                                     onTap: () async {
-                                      var pickedFile = await showDialog(
-                                          context: context,
-                                          builder: (context) =>
-                                              MediaPickDialog());
-                                      if (pickedFile != null) {
-                                        Provider.of<AddOfferProvider>(context,
-                                                listen: false)
-                                            .updateImage(
-                                                index: 1,
-                                                selectedImage: pickedFile);
+                                      if (Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .img2 !=
+                                          null) {
+                                        var pickedFile = await showDialog(
+                                            context: context,
+                                            builder: (context) =>
+                                                MediaPickDialog());
+                                        if (pickedFile != null) {
+                                          Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .updateImage(
+                                                  selectedImage: pickedFile,
+                                                  index: 1);
+                                        }
                                       }
                                     },
                                     child: Container(
-                                      width: 40.w,
-                                      height: 40.h,
+                                      width: 21.85.w,
+                                      height: 24.h,
                                       child: Provider.of<AddOfferProvider>(
                                                       context,
                                                       listen: true)
                                                   .img2 ==
                                               null
-                                          ? Image.asset(
-                                              'assets/images/addImg.png')
+                                          ? Container()
                                           : Image.file(
                                               Provider.of<AddOfferProvider>(
                                                       context,
@@ -252,7 +261,7 @@ class _AddOfferState extends State<AddOffer> {
                                                   .img2,
                                               fit: BoxFit.cover,
                                             ),
-                                      color: Colors.transparent,
+                                      color: Colors.grey[350],
                                     ),
                                   ),
                                   SizedBox(
@@ -260,28 +269,32 @@ class _AddOfferState extends State<AddOffer> {
                                   ),
                                   GestureDetector(
                                     onTap: () async {
-                                      var pickedFile = await showDialog(
-                                          context: context,
-                                          builder: (context) =>
-                                              MediaPickDialog());
-                                      if (pickedFile != null) {
-                                        Provider.of<AddOfferProvider>(context,
-                                                listen: false)
-                                            .updateImage(
-                                                index: 2,
-                                                selectedImage: pickedFile);
+                                      if (Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .img3 !=
+                                          null) {
+                                        var pickedFile = await showDialog(
+                                            context: context,
+                                            builder: (context) =>
+                                                MediaPickDialog());
+                                        if (pickedFile != null) {
+                                          Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .updateImage(
+                                                  selectedImage: pickedFile,
+                                                  index: 2);
+                                        }
                                       }
                                     },
                                     child: Container(
-                                      width: 40.w,
-                                      height: 40.h,
+                                      width: 21.85.w,
+                                      height: 24.h,
                                       child: Provider.of<AddOfferProvider>(
                                                       context,
                                                       listen: true)
                                                   .img3 ==
                                               null
-                                          ? Image.asset(
-                                              'assets/images/addImg.png')
+                                          ? Container()
                                           : Image.file(
                                               Provider.of<AddOfferProvider>(
                                                       context,
@@ -289,7 +302,7 @@ class _AddOfferState extends State<AddOffer> {
                                                   .img3,
                                               fit: BoxFit.cover,
                                             ),
-                                      color: Colors.transparent,
+                                      color: Colors.grey[350],
                                     ),
                                   ),
                                   SizedBox(
@@ -297,28 +310,32 @@ class _AddOfferState extends State<AddOffer> {
                                   ),
                                   GestureDetector(
                                     onTap: () async {
-                                      var pickedFile = await showDialog(
-                                          context: context,
-                                          builder: (context) =>
-                                              MediaPickDialog());
-                                      if (pickedFile != null) {
-                                        Provider.of<AddOfferProvider>(context,
-                                                listen: false)
-                                            .updateImage(
-                                                index: 3,
-                                                selectedImage: pickedFile);
+                                      if (Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .img4 !=
+                                          null) {
+                                        var pickedFile = await showDialog(
+                                            context: context,
+                                            builder: (context) =>
+                                                MediaPickDialog());
+                                        if (pickedFile != null) {
+                                          Provider.of<AddOfferProvider>(context,
+                                                  listen: false)
+                                              .updateImage(
+                                                  selectedImage: pickedFile,
+                                                  index: 3);
+                                        }
                                       }
                                     },
                                     child: Container(
-                                      width: 40.w,
-                                      height: 40.h,
+                                      width: 21.85.w,
+                                      height: 24.h,
                                       child: Provider.of<AddOfferProvider>(
                                                       context,
                                                       listen: true)
                                                   .img4 ==
                                               null
-                                          ? Image.asset(
-                                              'assets/images/addImg.png')
+                                          ? Container()
                                           : Image.file(
                                               Provider.of<AddOfferProvider>(
                                                       context,
@@ -326,57 +343,67 @@ class _AddOfferState extends State<AddOffer> {
                                                   .img4,
                                               fit: BoxFit.cover,
                                             ),
-                                      color: Colors.transparent,
+                                      color: Colors.grey[350],
                                     ),
                                   ),
                                 ],
                               ),
                             ),
-                            CarouselSlider(
-                              options: CarouselOptions(
-                                  height: 120.h,
-                                  autoPlay: false,
-                                  enlargeCenterPage: false,
-                                  viewportFraction: 0.33,
-                                  // aspectRatio: 2,
-                                  initialPage: 0,
-                                  onPageChanged: (index, reason) =>
-                                      providerFunc.changeSlider(index)),
-                              items: provider.categories.map((i) {
-                                // ignore: unused_local_variable
-                                int index = provider.categories.indexOf(i);
-                                return Builder(
-                                  builder: (BuildContext context) {
-                                    return Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Expanded(
-                                          child: Container(
-                                            margin:
-                                                EdgeInsetsResponsive.all(10),
-                                            width: 40.w,
-                                            height: 40.h,
-                                            color: Colors.grey[300],
+                            Row(
+                              children: [
+                                SizedBox(
+                                  width: 48.w,
+                                ),
+                                Text(
+                                  "Add Field",
+                                  style: TextStyle(
+                                      fontFamily: "Salsa-Regular",
+                                      fontSize: ScreenUtil().setSp(12),
+                                      fontWeight: FontWeight.w400),
+                                ),
+                              ],
+                            ),
+                            SizedBox(
+                              height: 11.h,
+                            ),
+                            Container(
+                              width: 186.w,
+                              child: CarouselSlider(
+                                options: CarouselOptions(
+                                    autoPlay: false,
+                                    enlargeCenterPage: false,
+                                    viewportFraction: 0.38,
+                                    initialPage: 0,
+                                    onPageChanged: (index, reason) =>
+                                        providerFunc.changeSlider(index)),
+                                items: provider.categories.map((i) {
+                                  // ignore: unused_local_variable
+                                  int index = provider.categories.indexOf(i);
+                                  return Builder(
+                                    builder: (BuildContext context) {
+                                      return Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Container(
+                                            width: 54.w,
+                                            height: 46.h,
+                                            color: Colors.grey[350],
                                           ),
-                                        ),
-                                        SizedBox(
-                                          height: 10,
-                                        ),
-                                        Expanded(
-                                          child: Container(
-                                            margin:
-                                                EdgeInsetsResponsive.all(10),
-                                            width: 40.w,
-                                            height: 40.h,
-                                            color: Colors.grey[300],
+                                          SizedBox(
+                                            height: 6.h,
                                           ),
-                                        ),
-                                      ],
-                                    );
-                                  },
-                                );
-                              }).toList(),
+                                          Container(
+                                            width: 54.w,
+                                            height: 46.h,
+                                            color: Colors.grey[350],
+                                          ),
+                                        ],
+                                      );
+                                    },
+                                  );
+                                }).toList(),
+                              ),
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -389,8 +416,8 @@ class _AddOfferState extends State<AddOffer> {
                                       Radius.circular(360),
                                     ),
                                     child: Container(
-                                      width: 6.0,
-                                      height: 9.0,
+                                      width: 4.0.w,
+                                      height: 9.0.h,
                                       decoration: BoxDecoration(
                                         color:
                                             provider.currentSliderIndex == index
@@ -416,8 +443,8 @@ class _AddOfferState extends State<AddOffer> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Image.asset(
-                                            'assets/images/duration.png',
+                                          SvgPicture.asset(
+                                            'assets/images/duration.svg',
                                             width: 25.w,
                                             height: 25.h,
                                           ),
@@ -454,7 +481,7 @@ class _AddOfferState extends State<AddOffer> {
                                         decoration: InputDecoration(
                                             hintText: "Duration".tr(),
                                             hintStyle: TextStyle(
-                                                color: Colors.grey[400],
+                                                color: Colors.grey[350],
                                                 fontFamily: "Salsa-Regular")),
                                         validator: Validator.validateEmptiness,
                                         style: TextStyle(
@@ -476,8 +503,8 @@ class _AddOfferState extends State<AddOffer> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Image.asset(
-                                            'assets/images/budget.png',
+                                          SvgPicture.asset(
+                                            'assets/images/budget.svg',
                                             width: 25.w,
                                             height: 25.h,
                                           ),
@@ -514,7 +541,7 @@ class _AddOfferState extends State<AddOffer> {
                                         decoration: InputDecoration(
                                             hintText: "Budget".tr(),
                                             hintStyle: TextStyle(
-                                                color: Colors.grey[400],
+                                                color: Colors.grey[350],
                                                 fontFamily: "Salsa-Regular")),
                                         style: TextStyle(
                                             fontSize: ScreenUtil().setSp(12),
@@ -536,8 +563,8 @@ class _AddOfferState extends State<AddOffer> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Image.asset(
-                                            'assets/images/location.png',
+                                          SvgPicture.asset(
+                                            'assets/images/location.svg',
                                             width: 25.w,
                                             height: 25.h,
                                           ),
@@ -638,18 +665,12 @@ class _AddOfferState extends State<AddOffer> {
                                   children: [
                                     Text("Send".tr(),
                                         style: TextStyle(
-                                            fontFamily: "Salsa-Regular",
-                                            fontWeight:
-                                                context.locale == Locale("ar")
-                                                    ? FontWeight.bold
-                                                    : FontWeight.normal)),
-                                    Transform.rotate(
-                                      angle: 5,
-                                      child: Image.asset(
-                                        "assets/images/logo.png",
-                                        width: 15,
-                                        height: 20,
-                                      ),
+                                            fontFamily: "Shrikhand-Regular",
+                                            fontWeight: FontWeight.w400)),
+                                    SvgPicture.asset(
+                                      "assets/images/send.svg",
+                                      width: 15,
+                                      height: 20,
                                     ),
                                   ],
                                 ),

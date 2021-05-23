@@ -15,6 +15,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:provider/provider.dart';
 import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/pagerProvider.dart';
@@ -45,12 +46,14 @@ class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
+
     ResponsiveWidgets.init(context,
-        height: 725.0, width: 360.0, allowFontScaling: true);
+        height: 896.0, width: 414.0, allowFontScaling: true);
 
     return ResponsiveWidgets.builder(
-      height: 725.0,
-      width: 360.0,
+      height: 896.0,
+      width: 414.0,
       allowFontScaling: true,
       child: Scaffold(
         backgroundColor: Colors.white,
@@ -61,7 +64,8 @@ class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
           children: pages,
         ),
         bottomNavigationBar: SizedBox(
-          height: 76.h,
+          height: 60.h,
+          width: width,
           child: AnimatedBottomNav(
               currentIndex: Provider.of<PagerProvider>(context, listen: true)
                   .bottomSelectedIndex,
@@ -83,6 +87,7 @@ class AnimatedBottomNav extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var width = MediaQuery.of(context).size.width;
     return Container(
       height: kToolbarHeight,
       decoration: BoxDecoration(
@@ -90,9 +95,19 @@ class AnimatedBottomNav extends StatelessWidget {
       ),
       child: Stack(
         children: [
-          Align(
-              alignment: Alignment.bottomCenter,
-              child: Image.asset('assets/images/bottomNavBackground.png')),
+          Container(
+            color: Color(0xffF2F2F2),
+            height: 1,
+            width: width,
+          ),
+          Positioned(
+              bottom: 0,
+              child: Container(
+                height: 30.h,
+                width: width,
+                child: SvgPicture.asset('assets/images/bottomNavBackground.svg',
+                    fit: BoxFit.fill, height: 30.h, width: width),
+              )),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -105,7 +120,7 @@ class AnimatedBottomNav extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                width: 60.w,
+                width: 174.w,
               ),
               InkWell(
                 onTap: () => onChange(1),
@@ -162,25 +177,16 @@ class BottomNavItem extends StatelessWidget {
                 children: <Widget>[
                   Image.asset(
                     'assets/images/$icon.png',
-                    width: 50.w,
-                    height: 50.h,
-                  ),
-                  const SizedBox(height: 5.0),
-                  Container(
-                    width: 5.0,
-                    height: 5.0,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: activeColor ?? Theme.of(context).primaryColor,
-                    ),
+                    width: 42.w,
+                    height: 40.h,
                   ),
                 ],
               ),
             )
           : Image.asset(
               'assets/images/$icon.png',
-              width: 50.w,
-              height: 50.h,
+              width: 42.w,
+              height: 40.h,
             ),
     );
   }
