@@ -30,6 +30,13 @@ class AddOfferProvider extends ChangeNotifier {
   File img2;
   File img3;
   File img4;
+  int perPageItem = 6;
+  int pageCount;
+  int selectedIndex = 0;
+  int lastPageItemLength;
+  PageController pageController;
+  bool isInteger(num value) => value is int || value == value.roundToDouble();
+
   logout(context) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.clear();
@@ -43,13 +50,23 @@ class AddOfferProvider extends ChangeNotifier {
   }
 
   int currentSliderIndex = 0;
-  List categories = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-  ];
+  List categories = ["1", "2", "3", "4", "5", "6", "7"];
+
+  setUpCategoris() {
+    pageController = PageController(initialPage: 0);
+
+    var num = (categories.length / perPageItem);
+    pageCount = isInteger(num) ? num.round() : num.toInt() + 1;
+
+    var reminder = categories.length.remainder(perPageItem);
+    lastPageItemLength = reminder == 0 ? perPageItem : reminder;
+  }
+
+  onCateoriesPageChange(index) {
+    selectedIndex = index;
+    notifyListeners();
+  }
+
   changeSlider(i) {
     currentSliderIndex = i;
     notifyListeners();
