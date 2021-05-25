@@ -43,5 +43,6 @@
     "Fujairah": "الفجيرة",
     "Ras Al Khaimah": "رأس الخيمة",
     "Camera": "الكاميرا",
-    "Gallery": "الاستديو"
+    "Gallery": "الاستديو",
+    "description field is required!": "حقل التفاصيل اجباري"
 }

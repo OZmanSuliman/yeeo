@@ -209,7 +209,7 @@ class _AddOfferState extends State<AddOffer> {
           ],
           borderRadius: BorderRadius.all(Radius.circular(20))),
       height: 205.h,
-      child: TextFormField(
+      child: TextField(
         textAlign: TextAlign.start,
         keyboardType: TextInputType.multiline,
         controller: provider.noteController,
@@ -223,7 +223,6 @@ class _AddOfferState extends State<AddOffer> {
             focusedBorder: UnderlineInputBorder(
               borderSide: BorderSide(color: Colors.transparent),
             )),
-        validator: Validator.validateEmptiness,
         maxLines: null,
       ),
     );

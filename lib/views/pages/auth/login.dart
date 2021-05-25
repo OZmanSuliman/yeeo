@@ -119,11 +119,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                               children: [
                                 Container(
                                   width: 250.w,
-                                  height: 40.h,
+                                  height: 45.h,
                                   padding: EdgeInsetsResponsive.all(8.0),
                                   child: TextFormField(
                                     controller: provider.emailController,
                                     keyboardType: TextInputType.emailAddress,
+                                    style: TextStyle(fontSize: 12),
                                     decoration: InputDecoration(
                                         contentPadding: EdgeInsets.symmetric(
                                             vertical: 10.0, horizontal: 10.0),
@@ -140,11 +141,12 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
                                 ),
                                 Container(
                                   width: 250.w,
-                                  height: 40.h,
+                                  height: 45.h,
                                   padding: EdgeInsetsResponsive.all(8.0),
                                   child: TextFormField(
                                       controller: provider.passwordController,
                                       obscureText: true,
+                                      style: TextStyle(fontSize: 12),
                                       decoration: InputDecoration(
                                           errorStyle: TextStyle(height: 0),
                                           border: new OutlineInputBorder(

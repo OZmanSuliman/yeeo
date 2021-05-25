@@ -43,5 +43,6 @@
     "Fujairah": "Fujairah",
     "Ras Al Khaimah": "Ras Al Khaimah",
     "Camera": "Camera",
-    "Gallery": "Gallery"
+    "Gallery": "Gallery",
+    "description field is required!": "description field is required!"
 }
