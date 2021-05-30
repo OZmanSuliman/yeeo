@@ -46,6 +46,15 @@ class Validator {
     return null;
   }
 
+  static bool validateEmptiness2(String value) {
+    if (value == null) {
+      return null;
+    } else if (value.length > 0) {
+      return true;
+    }
+    return false;
+  }
+
   static String validateDropDown(String value) {
     if (value == null) {
       return "This field can't be empty".tr();

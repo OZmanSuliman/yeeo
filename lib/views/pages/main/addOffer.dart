@@ -21,8 +21,11 @@ import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/addOfferProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
+import 'package:yeeo/views/widgets/CustomPopUpMenuButton.dart';
+import 'package:yeeo/views/widgets/customToast.dart';
 import 'package:yeeo/views/widgets/languages.dart';
 import 'package:yeeo/views/widgets/mediaPicker.dart';
+import 'dart:math' as math; // import this
 
 class AddOffer extends StatefulWidget {
   AddOffer();
@@ -40,9 +43,9 @@ class _AddOfferState extends State<AddOffer> {
 
   @override
   void dispose() {
-    Provider.of<AddOfferProvider>(context, listen: false)
-        .pageController
-        .dispose();
+    // Provider.of<AddOfferProvider>(context, listen: false)
+    //     .pageController
+    //     .dispose();
     super.dispose();
   }
 
@@ -114,9 +117,12 @@ class _AddOfferState extends State<AddOffer> {
                                 durationWidget(context, provider),
                                 budgetWidget(context, provider),
                                 locationWidget(context, provider, providerFunc),
+                                SizedBox(
+                                  height: 24.h,
+                                ),
                               ],
                             ),
-                            sendBtnWidget(context)
+                            sendBtnWidget(context, provider)
                           ],
                         ),
                       ),
@@ -192,7 +198,7 @@ class _AddOfferState extends State<AddOffer> {
 
   Container descriptionWidget(BuildContext context, AddOfferProvider provider) {
     return Container(
-      margin: EdgeInsetsResponsive.fromLTRB(33, 44, 37, 32),
+      margin: EdgeInsetsResponsive.fromLTRB(33, 28, 37, 15),
       padding: EdgeInsetsResponsive.only(
           right: context.locale == Locale("ar") ? 6 : 0,
           left: context.locale != Locale("ar") ? 6 : 0,
@@ -209,11 +215,12 @@ class _AddOfferState extends State<AddOffer> {
           ],
           borderRadius: BorderRadius.all(Radius.circular(20))),
       height: 205.h,
-      child: TextField(
+      child: TextFormField(
         textAlign: TextAlign.start,
         keyboardType: TextInputType.multiline,
         controller: provider.noteController,
-        minLines: 5,
+        minLines: 25,
+        validator: Validator.validateEmptiness,
         decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
             hintText: "description".tr(),
@@ -237,7 +244,7 @@ class _AddOfferState extends State<AddOffer> {
               width: 48.w,
             ),
             Text(
-              "Add image",
+              "Add image".tr(),
               style: TextStyle(
                   fontFamily: "Salsa-Regular",
                   fontSize: ScreenUtil().setSp(12),
@@ -380,7 +387,7 @@ class _AddOfferState extends State<AddOffer> {
     );
   }
 
-  GestureDetector sendBtnWidget(BuildContext context) {
+  GestureDetector sendBtnWidget(BuildContext context, provider) {
     return GestureDetector(
       onTap: () {
         if (Provider.of<AddOfferProvider>(context, listen: false)
@@ -404,10 +411,16 @@ class _AddOfferState extends State<AddOffer> {
                 style: TextStyle(
                     fontFamily: "Shrikhand-Regular",
                     fontWeight: FontWeight.w400)),
-            SvgPicture.asset(
-              "assets/images/send.svg",
-              width: 15,
-              height: 20,
+            Transform(
+              alignment: Alignment.center,
+              transform: (context.locale == Locale("ar"))
+                  ? Matrix4.rotationY(math.pi)
+                  : Matrix4.rotationY(0),
+              child: SvgPicture.asset(
+                "assets/images/send.svg",
+                width: 15,
+                height: 20,
+              ),
             ),
           ],
         ),
@@ -453,42 +466,47 @@ class _AddOfferState extends State<AddOffer> {
           width: 10.w,
         ),
         Container(
-          width: 140.w,
-          padding: EdgeInsetsResponsive.all(8.0),
-          child: DropdownButtonFormField(
-            icon: Icon(
-              Icons.keyboard_arrow_down,
-              color: Colors.blue,
-            ),
-            validator: Validator.validateDropDown,
-            hint: Container(
-              padding: EdgeInsetsResponsive.only(bottom: 8.0),
-              child: Text(provider?.selectedCity?.tr() ?? "select city".tr(),
+          width: 130.w,
+          margin: EdgeInsetsResponsive.only(left: 10, top: 21),
+          child: CustomPopupMenuButton<String>(
+              child: AbsorbPointer(
+                absorbing: true,
+                child: TextFormField(
+                  enabled: true,
+                  expands: false,
+                  textAlign: TextAlign.start,
+                  controller: provider.locationController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                      hintText: "select city".tr(),
+                      hintStyle: TextStyle(
+                          color: Color(0xffC4C4C4),
+                          fontFamily: "Salsa-Regular")),
                   style: TextStyle(
                       fontSize: ScreenUtil().setSp(12),
-                      fontFamily: "Salsa-Regular")),
-            ),
-            items: [
-              "Abu Dhabi",
-              "Ras Al Khaimah",
-              "Dubai",
-              "Sharjah",
-              "Ajman",
-              "Umm Al-Quwain",
-              "Fujairah",
-            ].map((String city) {
-              return new DropdownMenuItem<String>(
-                value: city,
-                child: new Text(city.tr(),
-                    style: TextStyle(
-                        fontSize: ScreenUtil().setSp(12),
-                        fontFamily: "Salsa-Regular")),
-              );
-            }).toList(),
-            onChanged: (city) {
-              providerFunc.changeCity(city);
-            },
-          ),
+                      fontFamily: "Salsa-Regular"),
+                  validator: Validator.validateEmptiness,
+                ),
+              ),
+              onSelected: (city) {
+                providerFunc.changeCity(city);
+              },
+              height: 100,
+              itemBuilder: (context) => [
+                    "Abu Dhabi",
+                    "Ras Al Khaimah",
+                    "Dubai",
+                    "Sharjah",
+                    "Ajman",
+                    "Umm Al-Quwain",
+                    "Fujairah",
+                  ].map((String city) {
+                    return PopupMenuItem(
+                      height: 30,
+                      value: city,
+                      child: Text(city),
+                    );
+                  }).toList()),
         ),
       ],
     );
@@ -619,7 +637,7 @@ class _AddOfferState extends State<AddOffer> {
               width: 48.w,
             ),
             Text(
-              "Add Field",
+              "Add Field".tr(),
               style: TextStyle(
                   fontFamily: "Salsa-Regular",
                   fontSize: ScreenUtil().setSp(12),

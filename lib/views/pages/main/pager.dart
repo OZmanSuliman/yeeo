@@ -21,13 +21,14 @@ import 'package:responsive_widgets/responsive_widgets.dart';
 import 'package:yeeo/core/providers/pagerProvider.dart';
 import 'package:yeeo/views/pages/main/basket.dart';
 import 'addOffer.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class Pager extends StatefulWidget {
   @override
   _PagerState createState() => _PagerState();
 }
 
-class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
+class _PagerState extends State<Pager> {
   List<Widget> pages = [
     AddOffer(),
     Basket(),
@@ -37,10 +38,8 @@ class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
   void initState() {
     super.initState();
     Provider.of<PagerProvider>(context, listen: false).tabController =
-        TabController(
-            vsync: this,
-            length: pages.length,
-            initialIndex: Provider.of<PagerProvider>(context, listen: false)
+        PageController(
+            initialPage: Provider.of<PagerProvider>(context, listen: false)
                 .bottomSelectedIndex);
   }
 
@@ -57,7 +56,7 @@ class _PagerState extends State<Pager> with SingleTickerProviderStateMixin {
       allowFontScaling: true,
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: TabBarView(
+        body: PageView(
           physics: NeverScrollableScrollPhysics(),
           controller:
               Provider.of<PagerProvider>(context, listen: false).tabController,
@@ -108,30 +107,55 @@ class AnimatedBottomNav extends StatelessWidget {
                 child: SvgPicture.asset('assets/images/bottomNavBackground.svg',
                     fit: BoxFit.fill, height: 30.h, width: width),
               )),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              InkWell(
-                onTap: () => onChange(0),
-                child: BottomNavItem(
-                  icon: 'addOffer',
-                  title: 'addOffer',
-                  isActive: currentIndex == 0,
+          (context.locale != Locale("ar"))
+              ? Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () => onChange(0),
+                      child: BottomNavItem(
+                        icon: 'addOffer',
+                        title: 'addOffer',
+                        isActive: currentIndex == 0,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 174.w,
+                    ),
+                    InkWell(
+                      onTap: () => onChange(1),
+                      child: BottomNavItem(
+                        icon: 'basket',
+                        title: "basket",
+                        isActive: currentIndex == 1,
+                      ),
+                    ),
+                  ],
+                )
+              : Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    InkWell(
+                      onTap: () => onChange(1),
+                      child: BottomNavItem(
+                        icon: 'basket',
+                        title: "basket",
+                        isActive: currentIndex == 1,
+                      ),
+                    ),
+                    SizedBox(
+                      width: 174.w,
+                    ),
+                    InkWell(
+                      onTap: () => onChange(0),
+                      child: BottomNavItem(
+                        icon: 'addOffer',
+                        title: 'addOffer',
+                        isActive: currentIndex == 0,
+                      ),
+                    ),
+                  ],
                 ),
-              ),
-              SizedBox(
-                width: 174.w,
-              ),
-              InkWell(
-                onTap: () => onChange(1),
-                child: BottomNavItem(
-                  icon: 'basket',
-                  title: "basket",
-                  isActive: currentIndex == 1,
-                ),
-              ),
-            ],
-          ),
         ],
       ),
     );
@@ -177,8 +201,8 @@ class BottomNavItem extends StatelessWidget {
                 children: <Widget>[
                   SvgPicture.asset(
                     'assets/images/$icon.svg',
-                    width: 29.w,
-                    height: 32.h,
+                    width: 22.w,
+                    height: 22.h,
                   ),
                 ],
               ),

@@ -26,7 +26,7 @@ class SplashProvider extends ChangeNotifier {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       await loadImages(context);
       bool isLogged = prefs.getBool("logged") ?? false;
-
+      // prefs.setBool("logged", true);
       if (isLogged) {
         Navigator.push(context,
             PageTransition(type: PageTransitionType.fade, child: Pager()));

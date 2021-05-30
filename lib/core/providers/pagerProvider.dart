@@ -14,13 +14,17 @@
 import 'package:flutter/material.dart';
 
 class PagerProvider extends ChangeNotifier {
-  TabController tabController;
+  PageController tabController;
 
   int bottomSelectedIndex = 0;
   init() {}
   onTap(index) {
     bottomSelectedIndex = index;
-    tabController.animateTo(bottomSelectedIndex);
+    tabController.animateToPage(
+      bottomSelectedIndex,
+      duration: Duration(microseconds: 1),
+      curve: Curves.ease,
+    );
     notifyListeners();
   }
 }

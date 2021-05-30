@@ -12,13 +12,12 @@
  * oz.solomon99@gmail.com
  */
 import 'dart:io';
-import 'package:easy_localization/easy_localization.dart';
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yeeo/views/pages/auth/login.dart';
 import 'package:yeeo/views/pages/offer/offerPage.dart';
-import 'package:yeeo/views/widgets/snackBar.dart';
 
 class AddOfferProvider extends ChangeNotifier {
   final homeFormKey = GlobalKey<FormState>();
@@ -106,6 +105,7 @@ class AddOfferProvider extends ChangeNotifier {
 
   changeCity(newCity) {
     selectedCity = newCity;
+    locationController.text = newCity;
     notifyListeners();
   }
 
@@ -113,9 +113,6 @@ class AddOfferProvider extends ChangeNotifier {
     if (noteController.text.isNotEmpty) {
       Navigator.pushReplacement(context,
           PageTransition(type: PageTransitionType.fade, child: OfferPage()));
-    } else {
-      ScaffoldMessenger.of(context)
-          .showSnackBar(snackBar('description field is required!'.tr()));
     }
   }
 }
