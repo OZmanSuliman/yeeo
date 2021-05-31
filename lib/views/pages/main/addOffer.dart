@@ -22,10 +22,9 @@ import 'package:yeeo/core/providers/addOfferProvider.dart';
 import 'package:yeeo/core/utils/validator.dart';
 import 'package:yeeo/views/theme/appTheme.dart';
 import 'package:yeeo/views/widgets/CustomPopUpMenuButton.dart';
-import 'package:yeeo/views/widgets/customToast.dart';
 import 'package:yeeo/views/widgets/languages.dart';
 import 'package:yeeo/views/widgets/mediaPicker.dart';
-import 'dart:math' as math; // import this
+import 'dart:math' as math;
 
 class AddOffer extends StatefulWidget {
   AddOffer();
@@ -122,7 +121,7 @@ class _AddOfferState extends State<AddOffer> {
                                 ),
                               ],
                             ),
-                            sendBtnWidget(context, provider)
+                            sendBtnWidget(context, provider),
                           ],
                         ),
                       ),
@@ -398,19 +397,31 @@ class _AddOfferState extends State<AddOffer> {
         }
       },
       child: Container(
-        margin: EdgeInsetsResponsive.fromLTRB(30, 10, 30, 10),
-        height: 30.h,
-        width: 90.w,
+        margin: context.locale == Locale("ar")
+            ? EdgeInsetsResponsive.fromLTRB(30, 10, 30, 28)
+            : EdgeInsetsResponsive.fromLTRB(30, 10, 30, 28),
+        height: 40.h,
+        width: 100.w,
         decoration: BoxDecoration(
             border: Border.all(color: appTheme().primaryColor, width: 2),
             borderRadius: BorderRadius.all(Radius.circular(50))),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: context.locale == Locale("ar")
+              ? MainAxisAlignment.end
+              : MainAxisAlignment.spaceEvenly,
           children: [
+            SizedBox(
+              width: context.locale == Locale("ar") ? 15.w : 5,
+            ),
             Text("Send".tr(),
                 style: TextStyle(
                     fontFamily: "Shrikhand-Regular",
-                    fontWeight: FontWeight.w400)),
+                    fontWeight: context.locale == Locale("ar")
+                        ? FontWeight.bold
+                        : FontWeight.w400)),
+            SizedBox(
+              width: context.locale == Locale("ar") ? 2.w : 0,
+            ),
             Transform(
               alignment: Alignment.center,
               transform: (context.locale == Locale("ar"))
@@ -422,6 +433,9 @@ class _AddOfferState extends State<AddOffer> {
                 height: 20,
               ),
             ),
+            SizedBox(
+              width: context.locale == Locale("ar") ? 15.w : 5,
+            )
           ],
         ),
       ),
@@ -478,6 +492,12 @@ class _AddOfferState extends State<AddOffer> {
                   controller: provider.locationController,
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
+                      focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: appTheme().primaryColor),
+                      ),
+                      errorStyle: TextStyle(
+                        fontSize: ScreenUtil().setSp(10),
+                      ),
                       hintText: "select city".tr(),
                       hintStyle: TextStyle(
                           color: Color(0xffC4C4C4),
@@ -488,6 +508,7 @@ class _AddOfferState extends State<AddOffer> {
                   validator: Validator.validateEmptiness,
                 ),
               ),
+              offset: Offset(20, 11),
               onSelected: (city) {
                 providerFunc.changeCity(city);
               },
@@ -558,6 +579,12 @@ class _AddOfferState extends State<AddOffer> {
             controller: provider.budgetController,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
+                errorStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(10),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: appTheme().primaryColor),
+                ),
                 hintText: "Budget".tr(),
                 hintStyle: TextStyle(
                     color: Color(0xffC4C4C4), fontFamily: "Salsa-Regular")),
@@ -616,6 +643,12 @@ class _AddOfferState extends State<AddOffer> {
             controller: provider.durationController,
             keyboardType: TextInputType.emailAddress,
             decoration: InputDecoration(
+                errorStyle: TextStyle(
+                  fontSize: ScreenUtil().setSp(10),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(color: appTheme().primaryColor),
+                ),
                 hintText: "Duration".tr(),
                 hintStyle: TextStyle(
                     color: Color(0xffC4C4C4), fontFamily: "Salsa-Regular")),

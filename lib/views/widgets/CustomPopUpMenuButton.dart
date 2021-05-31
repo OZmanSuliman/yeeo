@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 const Duration _kMenuDuration = Duration(milliseconds: 300);
 const double _kMenuCloseIntervalEnd = 2.0 / 3.0;
@@ -539,7 +540,9 @@ class _CustomPopupMenuButtonState<T> extends State<CustomPopupMenuButton<T>> {
         button.localToGlobal(button.size.bottomRight(Offset.zero),
             ancestor: overlay),
       ),
-      Offset.zero & overlay.size,
+      context.locale == Locale("ar")
+          ? Offset(25, 0) & overlay.size
+          : Offset(-20, 0) & overlay.size,
     );
     final List<PopupMenuEntry<T>> items = widget.itemBuilder(context);
     // Only show the menu if there is something to show
