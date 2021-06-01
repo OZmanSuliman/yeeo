@@ -102,10 +102,10 @@ class AnimatedBottomNav extends StatelessWidget {
           Positioned(
               bottom: 0,
               child: Container(
-                height: 30.h,
+                height: 20.h,
                 width: width,
                 child: SvgPicture.asset('assets/images/bottomNavBackground.svg',
-                    fit: BoxFit.fill, height: 30.h, width: width),
+                    fit: BoxFit.fill, height: 20.h, width: width),
               )),
           (context.locale != Locale("ar"))
               ? Row(

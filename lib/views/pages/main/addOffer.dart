@@ -218,8 +218,9 @@ class _AddOfferState extends State<AddOffer> {
         textAlign: TextAlign.start,
         keyboardType: TextInputType.multiline,
         controller: provider.noteController,
-        minLines: 25,
+        minLines: 7,
         validator: Validator.validateEmptiness,
+        style: TextStyle(fontSize: ScreenUtil().setSp(15)),
         decoration: InputDecoration(
             contentPadding: EdgeInsets.fromLTRB(0, 5, 0, 5),
             hintText: "description".tr(),
